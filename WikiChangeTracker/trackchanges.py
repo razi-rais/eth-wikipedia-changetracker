@@ -1,13 +1,14 @@
 import json
+import sys
 import requests
 from sseclient import SSEClient
 
-#TODO: Following values should be passed through enviroment variables 
-blockchain_api_url = "http://localhost:8081/"
-data_api_url = "http://localhost:8080/api/GetArticleIdByUri?articleUri="
+blockchain_api_url = sys.argv[1]
+data_api_url = sys.argv[2]
+wiki_recent_changes_event_url = sys.argv[3]
 
 items = {}
-def get_wiki_changes(wiki_recent_changes_url = "https://stream.wikimedia.org/v2/stream/recentchange"):
+def get_wiki_changes(wiki_recent_changes_url = wiki_recent_changes_event_url):
     messages = SSEClient(wiki_recent_changes_url)
     for msg in messages:
         str = msg.data

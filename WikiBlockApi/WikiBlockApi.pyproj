@@ -11,6 +11,9 @@
     <OutputPath>.</OutputPath>
     <Name>WikiBlockApi</Name>
     <RootNamespace>WikiBlockApi</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>"http://localhost:8545" "0x71979142f6b672e0bfd23264413a4abc2cb501fa" "0x36be34bf71dbee5de71e43f0adf118aa3c7e0b01" </CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
