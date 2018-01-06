@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WikiItemsApi", "WikiItemsApi\WikiItemsApi.pyproj", "{75C208D6-18EF-4E86-A919-FAFF0AD99DB6}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WikiChangeTracker", "Wikichain\WikiChangeTracker.pyproj", "{FED56E05-FE99-4A7B-8846-95B6627291DA}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WikiBlockApi", "WikiBlockApi\WikiBlockApi.pyproj", "{2FA94093-82AB-4EE2-BC2F-D23584A20CA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75C208D6-18EF-4E86-A919-FAFF0AD99DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C208D6-18EF-4E86-A919-FAFF0AD99DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED56E05-FE99-4A7B-8846-95B6627291DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED56E05-FE99-4A7B-8846-95B6627291DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA94093-82AB-4EE2-BC2F-D23584A20CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA94093-82AB-4EE2-BC2F-D23584A20CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6158241E-613A-4B2F-AC87-4A9BE0EF2AA6}
+	EndGlobalSection
+EndGlobal
