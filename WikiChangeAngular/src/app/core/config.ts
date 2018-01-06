@@ -5,7 +5,7 @@ export let CONFIG = {
     },
     web3: {
         pollInteval: 3 * 1000, // 3 seconds
-        contractId: '0x51a7457a746b9f2003bf8ba47318cd8b7327c079', // '0x551db3f1ee78e4e35b337fd10589719bb2f14df4',
+        contractId: '0x804d46b01ea3206fd137f88ba2992f079fc05de4', // '0x551db3f1ee78e4e35b337fd10589719bb2f14df4',
         jsonContract: [
             {
                 'constant': false,

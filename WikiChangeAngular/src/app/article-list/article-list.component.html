@@ -4,7 +4,7 @@
       <th style="width: 1%">ID</th>
       <th style="width: 20%">Article Name</th>
       <th>Article URL</th>
-      <th>Status</th>
+      <th>Most recent change</th>
       <th style="width: 20%">#Edit</th>
     </tr>
   </thead>
@@ -18,7 +18,9 @@
         {{article.url}}
       </td>
       <td>
-        <button type="button" class="btn btn-success btn-xs">Success</button>
+        <span *ngIf="getTimestampAge(article) <= 24" class="btn btn-success btn-xs">Within 24h</span>
+        <span *ngIf="getTimestampAge(article) <= 48" class="btn btn-success btn-xs">Within 48h</span>
+        <span *ngIf="getTimestampAge(article) > 48" class="btn btn-success btn-xs">> 48h</span>
       </td>
       <td>
         <a href="#" class="btn btn-primary btn-xs">
