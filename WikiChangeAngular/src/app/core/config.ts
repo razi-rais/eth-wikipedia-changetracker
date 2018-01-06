@@ -4,7 +4,7 @@ export let CONFIG = {
         articles: '/api/Articles'
     },
     web3: {
-        pollInteval: 10 * 1000, // 10 seconds
+        pollInteval: 3 * 1000, // 3 seconds
         contractId: '0x51a7457a746b9f2003bf8ba47318cd8b7327c079', // '0x551db3f1ee78e4e35b337fd10589719bb2f14df4',
         jsonContract: [
             {
