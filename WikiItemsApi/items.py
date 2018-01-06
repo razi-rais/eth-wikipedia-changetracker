@@ -56,14 +56,14 @@ def get_articles_by_userid():
     cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = '"+ user_id+"'")
     row = cursor.fetchone()
     
-    data = {}
-    items = []
+    data = []
 
     while row:
-        items.append([str(row[0]),str(row[1]),str(row[2])])
+        item = {"id" : str(row[0]), "title" : str(row[2]), "url" : str(row[3])} 
         row = cursor.fetchone()
+        data.append(item)
         
-    json_data = json.dumps(items)
+    json_data = json.dumps(data)
     return create_message(json_data,200)
 
 @app.route("/api/GetArticleIdByUri", methods=['GET'])

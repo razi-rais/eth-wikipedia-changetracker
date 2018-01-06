@@ -5,9 +5,15 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WikiItemsApi", "WikiItemsApi\WikiItemsApi.pyproj", "{75C208D6-18EF-4E86-A919-FAFF0AD99DB6}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WikiChangeTracker", "Wikichain\WikiChangeTracker.pyproj", "{FED56E05-FE99-4A7B-8846-95B6627291DA}"
-EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WikiBlockApi", "WikiBlockApi\WikiBlockApi.pyproj", "{2FA94093-82AB-4EE2-BC2F-D23584A20CA4}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WikiChangeTracker", "WikiChangeTracker\WikiChangeTracker.pyproj", "{FED56E05-FE99-4A7B-8846-95B6627291DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B7ADAA2-DF02-4C95-A169-E1464139C2AD}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +23,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{75C208D6-18EF-4E86-A919-FAFF0AD99DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75C208D6-18EF-4E86-A919-FAFF0AD99DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FED56E05-FE99-4A7B-8846-95B6627291DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FED56E05-FE99-4A7B-8846-95B6627291DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA94093-82AB-4EE2-BC2F-D23584A20CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FA94093-82AB-4EE2-BC2F-D23584A20CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED56E05-FE99-4A7B-8846-95B6627291DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED56E05-FE99-4A7B-8846-95B6627291DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
