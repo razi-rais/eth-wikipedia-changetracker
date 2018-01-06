@@ -12,6 +12,9 @@
     <Name>WikiItemsApi</Name>
     <RootNamespace>WikiItemsApi</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>"rz-sql.database.windows.net" "rzsqldb" "super" "Password~2017"</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
