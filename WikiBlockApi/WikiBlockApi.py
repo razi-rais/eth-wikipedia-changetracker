@@ -1,5 +1,6 @@
 import json
 import sys
+import base64
 from flask import request, url_for, jsonify
 from flask_api import FlaskAPI, status, exceptions
 from flask_cors import CORS
@@ -40,15 +41,15 @@ def update_article():
         id = int(data['id'])
         balance = web3.eth.getBalance(account)
         tx_receipt = wiki_contract.transact({'from': account, 'gas': gas}).UpdateArticleHistory(id,
-                                                                                                data['request_id'],
-                                                                                                data['title'],
-                                                                                                data['uri'],
+                                                                                                data['request_id'].encode('utf-8'),
+                                                                                                data['title'].encode('utf-8'),
+                                                                                                data['uri'].encode('utf-8'),
                                                                                                 data['revision_old'],
                                                                                                 data['revision_new'],
                                                                                                 data['timestamp'],
-                                                                                                data['change_type'],
-                                                                                                data['user'],
-                                                                                                data['comment'])
+                                                                                                data['change_type'].encode('utf-8'),
+                                                                                                data['user'].encode('utf-8'),
+                                                                                                data['comment'].encode('utf-8'))
         print("tx receipt: ",tx_receipt)
     except:
          print("Unexpected error:", sys.exc_info()[0])

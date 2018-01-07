@@ -13,7 +13,7 @@
     <RootNamespace>WikiItemsApi</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>"Azure SQL Server Name " "Database" "User" "Password"</CommandLineArguments>
+    <CommandLineArguments>"" "" "" ""</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
