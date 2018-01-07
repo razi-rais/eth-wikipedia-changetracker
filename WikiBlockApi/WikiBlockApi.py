@@ -41,15 +41,15 @@ def update_article():
         id = int(data['id'])
         balance = web3.eth.getBalance(account)
         tx_receipt = wiki_contract.transact({'from': account, 'gas': gas}).UpdateArticleHistory(id,
-                                                                                                data['request_id'].encode('utf-8'),
-                                                                                                data['title'].encode('utf-8'),
-                                                                                                data['uri'].encode('utf-8'),
+                                                                                                base64.b64encode(data['request_id'].encode('utf-8')),
+                                                                                                base64.b64encode(data['title'].encode('utf-8')),
+                                                                                                base64.b64encode(data['uri'].encode('utf-8')),
                                                                                                 data['revision_old'],
                                                                                                 data['revision_new'],
                                                                                                 data['timestamp'],
-                                                                                                data['change_type'].encode('utf-8'),
-                                                                                                data['user'].encode('utf-8'),
-                                                                                                data['comment'].encode('utf-8'))
+                                                                                                base64.b64encode(data['change_type'].encode('utf-8')),
+                                                                                                base64.b64encode(data['user'].encode('utf-8')),
+                                                                                                base64.b64encode(data['comment'].encode('utf-8')))
         print("tx receipt: ",tx_receipt)
     except:
          print("Unexpected error:", sys.exc_info()[0])
