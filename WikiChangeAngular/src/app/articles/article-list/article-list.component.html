@@ -18,9 +18,9 @@
         {{article.url}}
       </td>
       <td>
-        <span *ngIf="getTimestampAge(article) <= 24" class="btn btn-success btn-xs">Within 24h</span>
-        <span *ngIf="getTimestampAge(article) <= 48" class="btn btn-success btn-xs">Within 48h</span>
-        <span *ngIf="getTimestampAge(article) > 48" class="btn btn-success btn-xs">> 48h</span>
+        <span *ngIf="isTimestampBetween(article, 0, 24)" class="btn btn-success btn-xs">Within 24h</span>
+        <span *ngIf="isTimestampBetween(article, 24, 48)" class="btn btn-warning btn-xs">Within 48h</span>
+        <span *ngIf="isTimestampBetween(article, 48)" class="btn btn-danger btn-xs">> 48h</span>
       </td>
       <td>
         <a href="#" class="btn btn-primary btn-xs">

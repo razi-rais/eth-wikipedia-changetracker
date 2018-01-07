@@ -29,7 +29,21 @@ export class ArticleWeb3Service {
           })
           .then((events) => {
             if (observer.closed) { return; }
-            observer.next(events.map(ev => ev.returnValues as Article));
+            observer.next(events.map(ev => {
+              const article = new Article();
+              article.id = ev.returnValues['id'];
+              article.title = atob(ev.returnValues['title']);
+              article.url = atob(ev.returnValues['url']);
+              article.change_type = atob(ev.returnValues['change_type']);
+              article.comment = atob(ev.returnValues['comment']);
+              article.revision_new = ev.returnValues['revision_new'];
+              article.revision_old = ev.returnValues['revision_old'];
+              article.timestamp = ev.returnValues['timestamp'];
+              article.user = atob(ev.returnValues['user']);
+
+              return article;
+            }
+            ));
             timeoutId = setTimeout(getArticles, CONFIG.web3.pollInteval);
           })
           .catch((error) => {

@@ -31,9 +31,11 @@ export class ArticleListComponent implements OnInit, OnDestroy {
       .subscribe(articles => { this.articles = articles; }, error => { });
   }
 
-  getTimestampAge(article: Article) {
+  isTimestampBetween(article: Article, from: number, to?: number) {
     const num = parseInt(article.timestamp, 10);
-    return moment().diff(moment.unix(num), 'h');
+    const diff = moment().diff(moment.unix(num), 'h');
+
+    return from < diff && (to === undefined || diff <= to);
   }
 
 }
