@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Article } from '../article-list/article/article.model';
-import { ArticlePost } from '../article-list/article/article-post.model';
-import { ArticleService } from '../article-list/article/article.service';
+import { Article } from '../articles/shared/article.model';
+import { ArticlePost } from '../articles/shared/article-post.model';
+import { ArticleService } from '../articles/shared/article.service';
 
 @Component({
   selector: 'app-watch',

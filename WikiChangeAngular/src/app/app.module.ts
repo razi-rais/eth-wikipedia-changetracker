@@ -11,13 +11,14 @@ import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticleComponent } from './articles/article/article.component';
+import { ArticleListComponent } from './articles/article-list/article-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WatchComponent } from './watch/watch.component';
 
-import { ArticleService } from './article-list/article/article.service';
-import { ArticleWeb3Service } from './article-list/article/article-web3.service';
+import { ArticleService } from './articles/shared/article.service';
+import { ArticleWeb3Service } from './articles/shared/article-web3.service';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ArticleWeb3Service } from './article-list/article/article-web3.service'
   ],
   declarations: [
     AppComponent,
+    ArticleComponent,
     ArticleListComponent,
     DashboardComponent,
     NavigationComponent,

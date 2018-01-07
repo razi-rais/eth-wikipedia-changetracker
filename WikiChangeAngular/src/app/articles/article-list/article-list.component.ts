@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ISubscription } from 'rxjs/Subscription';
 import moment = require('moment');
 
-import { Article } from './article/article.model';
-import { ArticleWeb3Service } from './article/article-web3.service';
+import { Article } from '../shared/article.model';
+import { ArticleWeb3Service } from '../shared/article-web3.service';
 
 @Component({
   selector: 'app-article-list',
@@ -32,7 +32,8 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   }
 
   getTimestampAge(article: Article) {
-    return moment().diff(moment.unix(article.timestamp), 'h');
+    const num = parseInt(article.timestamp, 10);
+    return moment().diff(moment.unix(num), 'h');
   }
 
 }
