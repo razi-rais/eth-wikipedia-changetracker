@@ -76,7 +76,7 @@ def get_articleID_by_uri():
         uri = user_id = request.args.get('articleUri')
         cnxn = get_sqlcon()
         cursor = cnxn.cursor()
-        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = '"+uri+"'";
+        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = '"+uri.replace("'", "''")+"'";
         cursor.execute(query)
         row = cursor.fetchone()
          
