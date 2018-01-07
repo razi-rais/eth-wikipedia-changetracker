@@ -13,7 +13,7 @@
     <RootNamespace>WikiItemsApi</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>"rz-sql.database.windows.net" "rzsqldb" "super" "Password~2017"</CommandLineArguments>
+    <CommandLineArguments>"Azure SQL Server Name " "Database" "User" "Password"</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

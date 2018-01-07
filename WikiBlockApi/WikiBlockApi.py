@@ -32,9 +32,13 @@ def update_article():
 
     data = json.loads(request.json)
     web3 = Web3(HTTPProvider(web3_url))
-    #web3.personal.unlockAccount(account,'the-passphrase')
+    web3.personal.unlockAccount(account,"Password~2018")
     wiki_contract = web3.eth.contract(contract_address,abi=abi)
-    tx_receipt = wiki_contract.transact({'from': account, 'gas': gas}).UpdateArticleHistory(int(data['id']),
+    tx_receipt = ""
+    try:
+        id = int(data['id'])
+        balance = web3.eth.getBalance(account)
+        tx_receipt = wiki_contract.transact({'from': account, 'gas': gas}).UpdateArticleHistory(id,#"request_id","title","uri","revision_old","revision_new","timestamp","change_type","user","comment")
                                                                                             data['request_id'],
                                                                                             data['title'],
                                                                                             data['uri'],
@@ -44,7 +48,10 @@ def update_article():
                                                                                             data['change_type'],
                                                                                             data['user'],
                                                                                             data['comment'])
-   
+        print("tx receipt: ",tx_receipt)
+    except:
+         print("Unexpected error:", sys.exc_info()[0])
+  
    return create_message(tx_receipt,200);
 
  

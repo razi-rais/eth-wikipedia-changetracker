@@ -76,15 +76,15 @@ def get_articleID_by_uri():
         uri = user_id = request.args.get('articleUri')
         cnxn = get_sqlcon()
         cursor = cnxn.cursor()
-        cursor.execute("SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = '"+ uri+"'")
+        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = '"+uri+"'";
+        cursor.execute(query)
         row = cursor.fetchone()
          
-    
         while row:
           article_id = str(row[0])
           row = cursor.fetchone()
-        
-    json_data = json.dumps("[{"+str(article_id )+ "}]")
+
+    #json_data = json.dumps("[{"+str(article_id )+ "}]")
     return article_id
 
 def get_sqlcon():

@@ -21,9 +21,11 @@ def get_wiki_changes(wiki_recent_changes_url = wiki_recent_changes_event_url):
                  if(check_conditions(json_obj['type'],json_obj['bot'])):
 
                     article_uri =  json_obj['meta']['uri']
-                    article_id = requests.get(data_api_url+article_uri).content
-
-                    if(len(article_id) > 0):
+                    
+                    result = requests.get(data_api_url+article_uri)
+                    article_id = result.content
+                    status_code = result.status_code
+                    if(result.status_code == 200 and len(article_id) > 0):
                     # type is edit | log | categorize 
                         print(json_obj)
                         items['id']=  article_id
