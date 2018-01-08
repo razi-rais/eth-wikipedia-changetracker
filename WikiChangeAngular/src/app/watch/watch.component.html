@@ -23,7 +23,7 @@
                 <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="userId" [(ngModel)]="model.UserId" name="userId" class="form-control col-md-7 col-xs-12" placeholder="10" required
+                <input id="userId" [(ngModel)]="model.UserID" name="userId" class="form-control col-md-7 col-xs-12" placeholder="10" required
                   type="number">
               </div>
             </div>
@@ -33,7 +33,7 @@
                 <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="url" [(ngModel)]="model.Articles[0].url" name="url" class="form-control col-md-7 col-xs-12" placeholder="https://en.wikipedia.org/wiki/Rock_(geology)" required
+                <input id="url" [(ngModel)]="getArticle(0).url" name="url" class="form-control col-md-7 col-xs-12" placeholder="https://en.wikipedia.org/wiki/Rock_(geology)" required
                   type="text">
               </div>
             </div>

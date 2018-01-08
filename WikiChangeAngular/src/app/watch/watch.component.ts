@@ -12,6 +12,13 @@ import { ArticleService } from '../articles/shared/article.service';
 export class WatchComponent implements OnInit {
   model: ArticlePost;
 
+  getArticle(i: number): Article {
+    if (!this.model.Articles[i]) {
+      this.model.Articles[i] = new Article();
+    }
+    return this.model.Articles[i];
+  }
+
   constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
@@ -19,10 +26,14 @@ export class WatchComponent implements OnInit {
   }
 
   reset() {
-    this.model = new ArticlePost('', [new Article()]);
+    this.model = new ArticlePost('', []);
   }
   onSubmit() {
-    this.articleService.post(this.model);
+    this.articleService.post(this.model)
+      .subscribe(res => {
+        console.log(res);
+        this.reset();
+      }, (err) => console.log(err));
   }
 
 }
