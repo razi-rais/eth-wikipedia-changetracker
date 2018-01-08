@@ -1,7 +1,7 @@
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <h3>{{article.title}}</h3>
+      <h3>{{article.title}} {{article.url}}</h3>
     </div>
   </div>
 
@@ -10,14 +10,30 @@
     <div class="col-md-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>{{article.url}}</h2>
+          <h2>Changes</h2>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-          <p>Simple table with project listing with progress and editing options</p>
-          <!-- start project list -->
-          <app-article-list></app-article-list>
-          <!-- end project list -->
+            <table class="table table-striped projects">
+                <thead>
+                  <tr>
+                    <th style="width: 250px;">Date Time</th>
+                    <th>Changed By</th>
+                    <th style="width: 10%">Old Id</th>
+                    <th style="width: 10%">New Id</th>
+                    <th>Comment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{article.timestamp}}</td>
+                    <td>{{article.user}}</td>
+                    <td>{{article.revision_old}}</td>
+                    <td>{{article.revision_new}}</td>
+                    <td>{{article.comment}}</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
       </div>
     </div>

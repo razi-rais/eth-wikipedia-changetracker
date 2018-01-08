@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ISubscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 import moment = require('moment');
 
 import { Article } from '../shared/article.model';
@@ -11,7 +11,7 @@ import { ArticleWeb3Service } from '../shared/article-web3.service';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit, OnDestroy {
-  private subscription: ISubscription;
+  private subscription: Subscription;
   articles: Article[] = [];
 
   constructor(private articleWeb3Service: ArticleWeb3Service) { }
@@ -31,10 +31,8 @@ export class ArticleListComponent implements OnInit, OnDestroy {
       .subscribe(articles => { this.articles = articles; }, error => { });
   }
 
-  isTimestampBetween(article: Article, from: number, to?: number) {
-    const num = parseInt(article.timestamp, 10);
-    const diff = moment().diff(moment.unix(num), 'h');
-
+  isTimestampBetween(article: Article, from: number, to?: number): boolean {
+    const diff = moment().diff(article.timestamp, 'h');
     return from < diff && (to === undefined || diff <= to);
   }
 
