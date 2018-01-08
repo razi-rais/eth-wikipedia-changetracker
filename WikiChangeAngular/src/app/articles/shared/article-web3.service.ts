@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import Web3 = require('web3');
+import moment = require('moment');
 
 import { CONFIG } from '../../core';
 import { Article } from './article.model';
@@ -38,9 +39,8 @@ export class ArticleWeb3Service {
               article.comment = atob(ev.returnValues['comment']);
               article.revision_new = ev.returnValues['revision_new'];
               article.revision_old = ev.returnValues['revision_old'];
-              article.timestamp = ev.returnValues['timestamp'];
+              article.timestamp = moment.unix(parseInt(ev.returnValues['timestamp'], 10));
               article.user = atob(ev.returnValues['user']);
-
               return article;
             }
             ));

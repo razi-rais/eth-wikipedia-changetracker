@@ -39,8 +39,4 @@ export class ArticleComponent implements OnInit, OnDestroy {
       .subscribe(articles => { this.article = articles.find(article => article.id === this.id); }, error => { }));
   }
 
-  getDate(article: Article): string {
-    
-  }
-
 }

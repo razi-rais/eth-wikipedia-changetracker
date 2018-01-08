@@ -19,13 +19,20 @@ export class ArticleService {
       })
       .map(response => {
         const data = JSON.parse(response.message);
-        return data.map(el => new Article(el[0], el[1], el[2]));
+        return data.map(el => {
+          const article = new Article();
+          article.id = el.id;
+          article.title = el.title;
+          article.url = el.url;
+          return article;
+        });
       })
       .catch(error => this.handleError(error, 'Error getting articles!'));
   }
 
   post(articlePost: ArticlePost) {
-    console.log(articlePost);
+    return this.http.post<any>(CONFIG.baseUrls.articles, articlePost)
+      .catch(error => this.handleError(error, 'Error saving article watch!'));
   }
 
   private handleError<T>(error: HttpErrorResponse, msg: string) {
