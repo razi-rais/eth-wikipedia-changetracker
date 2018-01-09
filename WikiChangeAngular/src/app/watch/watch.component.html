@@ -24,17 +24,34 @@
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <input id="userId" [(ngModel)]="model.UserID" name="userId" class="form-control col-md-7 col-xs-12" placeholder="10" required
-                  type="number">
+                  type="text">
               </div>
             </div>
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url">
-                URL
-                <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="url" [(ngModel)]="getArticle(0).url" name="url" class="form-control col-md-7 col-xs-12" placeholder="https://en.wikipedia.org/wiki/Rock_(geology)" required
-                  type="text">
+
+            <div *ngFor="let article of model.Articles; index as i">
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url{{i}}">
+                  URL
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input id="url{{i}}" [(ngModel)]="article.url" name="url{{i}}" class="form-control col-md-7 col-xs-12" placeholder="https://en.wikipedia.org/wiki/Rock_(geology)"
+                    required type="text" (blur)="getTitleAndId(article)">
+                </div>
+              </div>
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id{{i}}">
+                  Id
+                </label>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                  <input id="id{{i}}" [(ngModel)]="article.id" name="id{{i}}" class="form-control col-md-7 col-xs-12" type="text" disabled>
+                </div>
+                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="title{{i}}">
+                  Title
+                </label>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <input id="title{{i}}" [(ngModel)]="article.title" name="title{{i}}" class="form-control col-md-7 col-xs-12" type="text" disabled>
+                </div>
               </div>
             </div>
 

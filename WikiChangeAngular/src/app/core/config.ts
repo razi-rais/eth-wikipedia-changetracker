@@ -1,7 +1,9 @@
 export let CONFIG = {
     baseUrls: {
+        articles: '/api/Articles',
+        wiki: 'https://en.wikipedia.org/wiki/',
+        wikiApi: 'https://en.wikipedia.org/w/api.php',
         web3: 'http://localhost:8545',
-        articles: '/api/Articles'
     },
     web3: {
         pollInteval: 3 * 1000, // 3 seconds

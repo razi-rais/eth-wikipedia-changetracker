@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import moment = require('moment');
+import * as _ from 'underscore';
 
 import { Article } from '../shared/article.model';
 import { ArticleWeb3Service } from '../shared/article-web3.service';
@@ -13,8 +14,8 @@ import { ArticleWeb3Service } from '../shared/article-web3.service';
 })
 export class ArticleComponent implements OnInit, OnDestroy {
   id: string;
-  private subscription = new Subscription();
-  article: Article = new Article();
+  private sub = new Subscription();
+  articles: Article[] = [new Article()];
 
   constructor(
     private route: ActivatedRoute,
@@ -23,20 +24,26 @@ export class ArticleComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscription.add(this.route.params
+    this.sub.add(this.route.params
       .map(params => this.id = params['id'])
       .subscribe(id => this.getArticle()));
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.sub.unsubscribe();
   }
 
   getArticle() {
-    this.article = new Article();
+    this.articles = [new Article()];
 
-    this.subscription.add(this.articleWeb3Service.startPolling()
-      .subscribe(articles => { this.article = articles.find(article => article.id === this.id); }, error => { }));
+    this.sub.add(this.articleWeb3Service.startPolling()
+      .subscribe(articles => {
+          this.articles = _.chain(articles)
+          .filter(article => article.id === this.id)
+          .sortBy('timestamp')
+          .reverse()
+          .value();
+      }, error => { }));
   }
 
 }

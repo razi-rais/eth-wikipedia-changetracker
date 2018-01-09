@@ -1,7 +1,7 @@
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <h3>{{article.title}} {{article.url}}</h3>
+      <h3>{{articles[0].title}} {{articles[0].url}}</h3>
     </div>
   </div>
 
@@ -25,7 +25,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor="let article of articles">
                     <td>{{article.timestamp}}</td>
                     <td>{{article.user}}</td>
                     <td>{{article.revision_old}}</td>

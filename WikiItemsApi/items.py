@@ -30,12 +30,12 @@ def save_article():
     cursor = cnxn.cursor()
      
     for i in data['Articles']:
-         print (i['ID'])
-         cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = '"+ user_id+"' AND [ArticleID] = '"+i["ID"]+"'")
+         print (i['id'])
+         cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = '"+ user_id+"' AND [ArticleID] = '"+i["id"]+"'")
          row = cursor.fetchone()
-         article_id = i['ID']
-         title = i['Title']
-         url = i['Url']
+         article_id = i['id']
+         title = i['title']
+         url = i['url']
  
          if row is None:
              cursor.execute("INSERT INTO [Articles] ([ArticleID] ,[Title] ,[Url] ,[UserID]) VALUES ('"+article_id+"' ,'"+title+"' ,'"+url+"' , '"+user_id +"');")

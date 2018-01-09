@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import moment = require('moment');
+import * as _ from 'underscore';
 
 import { Article } from '../shared/article.model';
 import { ArticleWeb3Service } from '../shared/article-web3.service';
@@ -11,7 +12,7 @@ import { ArticleWeb3Service } from '../shared/article-web3.service';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
+  private sub: Subscription;
   articles: Article[] = [];
 
   constructor(private articleWeb3Service: ArticleWeb3Service) { }
@@ -21,14 +22,19 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.sub.unsubscribe();
   }
 
   getArticles() {
     this.articles = [];
 
-    this.subscription = this.articleWeb3Service.startPolling()
-      .subscribe(articles => { this.articles = articles; }, error => { });
+    this.sub = this.articleWeb3Service.startPolling()
+      .subscribe(articles => {
+        this.articles = _.chain(articles)
+          .groupBy('id')
+          .map(group => _.max(group, article => article.timestamp))
+          .value();
+      }, error => { });
   }
 
   isTimestampBetween(article: Article, from: number, to?: number): boolean {

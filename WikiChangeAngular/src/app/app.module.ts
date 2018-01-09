@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -19,11 +19,13 @@ import { WatchComponent } from './watch/watch.component';
 
 import { ArticleService } from './articles/shared/article.service';
 import { ArticleWeb3Service } from './articles/shared/article-web3.service';
+import { WikiService } from './articles/shared/wiki.service';
 
 
 @NgModule({
   imports: [
     HttpClientModule,
+    HttpClientJsonpModule,
     BrowserModule,
     FormsModule,
 
@@ -39,7 +41,7 @@ import { ArticleWeb3Service } from './articles/shared/article-web3.service';
     NavigationComponent,
     WatchComponent
   ],
-  providers: [ArticleService, ArticleWeb3Service],
+  providers: [ArticleService, ArticleWeb3Service, WikiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
