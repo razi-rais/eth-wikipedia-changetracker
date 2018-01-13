@@ -74,8 +74,10 @@ Open Metamask
 2. Open Chrome and your MetaMask extension.
    ![Alt text](/DocumentationImages/Metamask/2-metamask.jpg?raw=true)
 3. Click on the person icon
+
    ![Alt text](/DocumentationImages/Metamask/personicon.jpg?raw=true)
 4. Choose import account
+
    ![Alt text](/DocumentationImages/Metamask/3-import.jpg?raw=true)
 5. In command window #2, type in: 
    ```
@@ -84,6 +86,7 @@ Open Metamask
 6. This will list all the info about the account and will get you the location of the JSON for your account import. It should be a path similar to this one: C:\Users\super\AppData\Roaming\Ethereum\rinkeby\keystore
    ![Alt text](/DocumentationImages/Metamask/5-localpath.jpg?raw=true)
 7. Go back to Chrome and Metamask.  In your metamask import screen, add the JSON file from the path you got in the previous steps.
+
    ![Alt text](/DocumentationImages/Metamask/4-json.jpg?raw=true)
    ![Alt text](/DocumentationImages/Metamask/6-jsonfile.jpg?raw=true)
 8. This will import your account.
