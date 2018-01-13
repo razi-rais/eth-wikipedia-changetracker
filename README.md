@@ -33,18 +33,29 @@ Setup instructions will be broken down by different environments.  The project w
 
 ## Setup Rinkeby and get free ether
 1. Install geth.
-2. Open up a command line (we will refer to this as command window #1) and run the following (replace path with the path where your geth.exe file lives): path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
-3. Open a second command line (we will call this command window #2). Run the following: personal.newAccount('passwordhere')
-4. Run the following: personal.listAccounts
-5. Get the account ID from the following command.
-6. Go to the following URL: https://www.rinkeby.io/#faucet
-7. Click on the "Tweet" link and paste your account ID into the 0x00000000... and Tweet it to your Twitter account. 
-8. Copy the Tweet's URL into the the input box and click Give me Ether. 
-9. Verify you have ether on the Block Explorer tab
-10. Paste your account on the search box on the top right. 
-11. Wait around 30 minutes for geth to download history onto your local machine.
-12. Verify completion with ...?
-13. 
+2. Open up a command line (we will refer to this as command window #1) and run the following (replace path with the path where your geth.exe file lives): 
+```
+path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
+```
+*Wait around 30 minutes for geth to download history onto your local machine (from this command window), just keep it open while you complete the other steps.*
+3. Open a second command line (we will call this command window #2). Run the following (replace path with the path where your geth.exe file lives): 
+```
+path/geth.exe attach
+```
+4. Run the command: 
+```
+personal.newAccount('passwordhere')
+```
+5. Run the following: 
+```
+personal.listAccounts
+```
+6. Get the account ID from the command above (in green text in screenshot above) and save this in a Notepad.
+7. Go to the following URL: https://www.rinkeby.io/#faucet
+8. Click on the "Tweet" link and paste your account ID into the 0x00000000... and Tweet it to your Twitter account. 
+9. Copy the Tweet's URL into the the input box and click Give me Ether. 
+10. Click on the Block Explorer tab. Paste your account on the search box on the top right. 
+11. You should see your account page on Rinkeby. 
 
 Open Metamask
 1. Open Remix (Solidity IDE) in Chrome. Copy and paste the solidity contract into Remix. 
