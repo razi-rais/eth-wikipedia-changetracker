@@ -20,12 +20,16 @@ This project was created by Razi Rais, Crystal Tenn, and Viktor Dikov.
 3. Now go back to the Dashboard page
 
 # Setup Instructions 
+Setup instructions will be broken down by different environments.  The project was built in Python so it would be more cross platform. If you would like to use a VM to ensure everything is in a clean environment, we have an Azure ARM template that you can deploy with easily just by clicking below.  Otherwise, you are welcome to use your local machines.  You do not need to use Visual Studio or Visual Studio Code if you have another IDE in mind.   
+
+## Windows 10 / Windows Server 2016 / Visual Studio / Visual Studio Code
 1. Download the project as a zip file or using Git. 
 2. 
-TODO
+3. Create a local SQL Server or Azure SQL Server.
+4. Create a SQL database. 
+5. Add the connection string to.. 
 
-## Windows 10 / Windows Server 2016
-TODO
+## Linux / 
 
 ### Virtual Machine - Windows Server 2016/ Windows 10
 
