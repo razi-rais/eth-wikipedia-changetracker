@@ -22,16 +22,13 @@ This project was created by Razi Rais, Crystal Tenn, and Viktor Dikov.
 # Setup Instructions 
 Setup instructions will be broken down by different environments.  The project was built in Python so it would be more cross platform. If you would like to use a VM to ensure everything is in a clean environment, we have an Azure ARM template that you can deploy with easily just by clicking below.  Otherwise, you are welcome to use your local machines.  You do not need to use Visual Studio or Visual Studio Code if you have another IDE in mind.   
 
-## Windows 10 / Windows Server 2016 / Visual Studio / Visual Studio Code
-1. Download the project as a zip file or using Git. 
-2. 
-3. Create a local SQL Server or Azure SQL Server.
-4. Create a SQL database. 
-5. Add the connection string to.. 
+### Start Here and choose your OS: 
+* [Windows / Visual Studio Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/WindowsSetup.md) - Choose this if you are a Windows user and want to set this up using your local machine. 
+* [Linux Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/LinuxSetup.md) - Choose this if you are a Linux user and want to set this up using your local machine. 
+* [Azure VM - Windows Server 2016](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/VMSetup.md) -  - Choose this if you prefer to complete this tutorial using an Azure VM.  We will provide an ARM template for easy VM setup with a couple of clicks.  It will have a clean environment and be separate from your local machine, all you need to do is RDP in.  
 
-## Linux / 
 
-## Setup Rinkeby and get free ether
+### Setup Rinkeby and get free ether
 1. Install geth.
 2. Open up a command line (we will refer to this as command window #1) and run the following (replace path with the path where your geth.exe file lives): 
    ```
@@ -68,7 +65,7 @@ Setup instructions will be broken down by different environments.  The project w
 12. You should see your account page on Rinkeby. 
    ![Alt text](/DocumentationImages/Rinkeby/10-rinkebyaccount.jpg?raw=true)
 
-Open Metamask
+### Using Remix and Metamask
 1. Open Remix (Solidity IDE) in Chrome. Copy and paste the solidity contract into Remix. 
    ![Alt text](/DocumentationImages/Metamask/1-remix.jpg?raw=true)
 2. Open Chrome and your MetaMask extension.
@@ -105,9 +102,7 @@ Open Metamask
 13. Once it is done, go to Rinkeby and check for a transaction by going to the Block Explorer and searching for your Contract ID. 
    ![Alt text](/DocumentationImages/Metamask/10-contractcreation.jpg?raw=true)
 
-### Virtual Machine - Windows Server 2016/ Windows 10
 
-### Virtual Machine - Azure (ARM Template - Windows Server 2016)
 
 # Architecture Diagram
 TODO
