@@ -33,8 +33,8 @@ Setup instructions will be broken down by different environments.  The project w
 
 ## Setup Rinkeby and get free ether
 1. Install geth.
-2. Open up a command line and run the following (replace path with the path where your geth.exe file lives): path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
-3. Run the following: personal.newAccount('passwordhere')
+2. Open up a command line (we will refer to this as command window #1) and run the following (replace path with the path where your geth.exe file lives): path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
+3. Open a second command line (we will call this command window #2). Run the following: personal.newAccount('passwordhere')
 4. Run the following: personal.listAccounts
 5. Get the account ID from the following command.
 6. Go to the following URL: https://www.rinkeby.io/#faucet
@@ -44,6 +44,16 @@ Setup instructions will be broken down by different environments.  The project w
 10. Paste your account on the search box on the top right. 
 11. Wait around 30 minutes for geth to download history onto your local machine.
 12. Verify completion with ...?
+13. 
+
+Open Metamask
+1. Open Remix (Solidity IDE)
+2. Open MetaMask
+3. Click on the person icon
+4. Choose import account
+5. In command window #2, type in: personal
+6. This will list all the info about the account and will get you the location of the JSON for your account import. It should be a path similar to this one: C:\Users\super\AppData\Roaming\Ethereum\rinkeby\keystore
+7. 
 
 ### Virtual Machine - Windows Server 2016/ Windows 10
 
