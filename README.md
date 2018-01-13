@@ -10,7 +10,7 @@ The project is composed of an Angular front end, python API projects, an Azure S
 
 The SQL database will keep all of the user information, article information (URL and title), and the association of users to their articles (which articles belong to which users). The Blockchain will keep track of all the updates that have occurrred to a particular article and has an event system implemented which will be raised when an new update to a certain article a user is interested in is changed. 
 
-This project was created by Razi Rais, Crystal Tenn, and Viktor Dikov. 
+*This project was created by Razi Rais, Crystal Tenn, and Viktor Dikov.* 
 
 # App Walkthrough
 * [App Walkthrough](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/AppWalkthrough) - Simple Walkthrough of the app as an end user. Displays the purpose and usage of the application with screenshots. 
