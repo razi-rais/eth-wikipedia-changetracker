@@ -47,13 +47,21 @@ Setup instructions will be broken down by different environments.  The project w
 13. 
 
 Open Metamask
-1. Open Remix (Solidity IDE)
-2. Open MetaMask
+1. Open Remix (Solidity IDE) in Chrome. Copy and paste the solidity contract into Remix. 
+2. Open Chrome and your MetaMask extension.
 3. Click on the person icon
 4. Choose import account
 5. In command window #2, type in: personal
 6. This will list all the info about the account and will get you the location of the JSON for your account import. It should be a path similar to this one: C:\Users\super\AppData\Roaming\Ethereum\rinkeby\keystore
-7. 
+7. Go back to Chrome and Metamask.  In your metamask import screen, add the JSON file from the path you got in the previous steps. 
+8. This will import your account.
+9. On the command window #1, type exit, then run the command again (change the path to your path): path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
+10. Now, refresh Chrome with the Solidity page.
+11. In the Solidity page, after the contract compile, hit Run and choose Integrated Web 3. 
+12. Open MetaMask up and you should see the account you created in the geth command window.
+13. Hit Create on the contract in Remix. 
+14. Give time for the transaction to go through. 
+15. Once it is done, go to Rinkeby and check for a transaction by going to the Block Explorer and searching for your Contract ID. 
 
 ### Virtual Machine - Windows Server 2016/ Windows 10
 
