@@ -37,23 +37,32 @@ Setup instructions will be broken down by different environments.  The project w
 ```
 path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
 ```
-      ![Alt text](/DocumentationImages/Rinkeby/1-geth.jpg?raw=true "geth")
+   ![Alt text](/DocumentationImages/Rinkeby/1-geth.jpg?raw=true)
 
 *Wait around 30 minutes for geth to download history onto your local machine (from this command window), just keep it open while you complete the other steps.*
 3. Open a second command line (we will call this command window #2). Run the following (replace path with the path where your geth.exe file lives): 
 ```
 path/geth.exe attach
 ```
+   ![Alt text](/DocumentationImages/Rinkeby/2-geth-attach.jpg?raw=true)
+
 4. Run the command: 
 ```
 personal.newAccount('passwordhere')
 ```
+   ![Alt text](/DocumentationImages/Rinkeby/3-newaccount.jpg?raw=true)
+
 5. Run the following: 
 ```
 personal.listAccounts
 ```
+   ![Alt text](/DocumentationImages/Rinkeby/4-listaccounts.jpg?raw=true)
+
 6. Get the account ID from the command above (in green text in screenshot above) and save this in a Notepad.
 7. Go to the following URL: https://www.rinkeby.io/#faucet
+
+   ![Alt text](/DocumentationImages/Rinkeby/5-rinkeby.jpg?raw=true)
+
 8. Click on the "Tweet" link and paste your account ID into the 0x00000000... and Tweet it to your Twitter account. 
 9. Copy the Tweet's URL into the the input box and click Give me Ether. 
 10. Click on the Block Explorer tab. Paste your account on the search box on the top right. 
