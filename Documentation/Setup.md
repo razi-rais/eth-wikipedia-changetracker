@@ -1,12 +1,13 @@
+# Setup Introduction
 Setup instructions will be broken down by different environments.  The project was built in Python so it would be more cross platform. If you would like to use a VM to ensure everything is in a clean environment, we have an Azure ARM template that you can deploy with easily just by clicking below.  Otherwise, you are welcome to use your local machines.  You do not need to use Visual Studio or Visual Studio Code if you have another IDE in mind.   
 
-### Start Here and choose your OS: 
+# Start Here and choose your OS: 
 * [Windows / Visual Studio Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/WindowsSetup.md) - Choose this if you are a Windows user and want to set this up using your local machine. 
 * [Linux Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/LinuxSetup.md) - Choose this if you are a Linux user and want to set this up using your local machine. 
 * [Azure VM - Windows Server 2016](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/VMSetup.md) -  - Choose this if you prefer to complete this tutorial using an Azure VM.  We will provide an ARM template for easy VM setup with a couple of clicks.  It will have a clean environment and be separate from your local machine, all you need to do is RDP in.  
 
 
-### Setup Rinkeby and get free ether
+# Setup Rinkeby and get free ether
 1. Install geth.
 2. Open up a command line (we will refer to this as command window #1) and run the following (replace path with the path where your geth.exe file lives): 
    ```
@@ -43,7 +44,7 @@ Setup instructions will be broken down by different environments.  The project w
 12. You should see your account page on Rinkeby. 
    ![Alt text](/DocumentationImages/Rinkeby/10-rinkebyaccount.jpg?raw=true)
 
-### Using Remix and Metamask
+# Using Remix and Metamask
 1. Open Remix (Solidity IDE) in Chrome. Copy and paste the solidity contract into Remix. 
    ![Alt text](/DocumentationImages/Metamask/1-remix.jpg?raw=true)
 2. Open Chrome and your MetaMask extension.
