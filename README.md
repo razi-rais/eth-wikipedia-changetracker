@@ -37,6 +37,8 @@ Setup instructions will be broken down by different environments.  The project w
 ```
 path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
 ```
+      ![Alt text](/DocumentationImages/Rinkeby/1-geth.jpg?raw=true "geth")
+
 *Wait around 30 minutes for geth to download history onto your local machine (from this command window), just keep it open while you complete the other steps.*
 3. Open a second command line (we will call this command window #2). Run the following (replace path with the path where your geth.exe file lives): 
 ```
