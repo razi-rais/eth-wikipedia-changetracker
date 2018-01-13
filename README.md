@@ -31,6 +31,20 @@ Setup instructions will be broken down by different environments.  The project w
 
 ## Linux / 
 
+## Setup Rinkeby and get free ether
+1. Install geth.
+2. Open up a command line and run the following (replace path with the path where your geth.exe file lives): path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
+3. Run the following: personal.newAccount('passwordhere')
+4. Run the following: personal.listAccounts
+5. Get the account ID from the following command.
+6. Go to the following URL: https://www.rinkeby.io/#faucet
+7. Click on the "Tweet" link and paste your account ID into the 0x00000000... and Tweet it to your Twitter account. 
+8. Copy the Tweet's URL into the the input box and click Give me Ether. 
+9. Verify you have ether on the Block Explorer tab
+10. Paste your account on the search box on the top right. 
+11. Wait around 30 minutes for geth to download history onto your local machine.
+12. Verify completion with ...?
+
 ### Virtual Machine - Windows Server 2016/ Windows 10
 
 ### Virtual Machine - Azure (ARM Template - Windows Server 2016)
