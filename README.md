@@ -72,6 +72,7 @@ Open Metamask
 1. Open Remix (Solidity IDE) in Chrome. Copy and paste the solidity contract into Remix. 
    ![Alt text](/DocumentationImages/Metamask/1-remix.jpg?raw=true)
 2. Open Chrome and your MetaMask extension.
+
    ![Alt text](/DocumentationImages/Metamask/2-metamask.jpg?raw=true)
 3. Click on the person icon
 
@@ -85,23 +86,23 @@ Open Metamask
    ```
 6. This will list all the info about the account and will get you the location of the JSON for your account import. It should be a path similar to this one: C:\Users\super\AppData\Roaming\Ethereum\rinkeby\keystore
    ![Alt text](/DocumentationImages/Metamask/5-localpath.jpg?raw=true)
-7. Go back to Chrome and Metamask.  In your metamask import screen, add the JSON file from the path you got in the previous steps.
+7. Go back to Chrome and Metamask.  In your metamask import screen, add the JSON file from the path you got in the previous steps. This will import your account.
 
    ![Alt text](/DocumentationImages/Metamask/4-json.jpg?raw=true)
    ![Alt text](/DocumentationImages/Metamask/6-jsonfile.jpg?raw=true)
-8. This will import your account.
-9. On the command window #1, type exit, then run the command again (change the path to your path): 
+ 
+8. On the command window #1, type exit, then run the command again (change the path to your path): 
    ```
    path/geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
    ```
-10. Now, refresh Chrome with the Solidity page.
-11. Open MetaMask and choose the Rinkeby Test Network. 
+9. Now, refresh Chrome with the Solidity page.
+10. Open MetaMask and choose the Rinkeby Test Network. 
    ![Alt text](/DocumentationImages/Metamask/8-rinkebytestnet.jpg?raw=true)
-12. In the Solidity page, after the contract compile, hit Run and choose Integrated Web 3. Hit Create. Give time for the transaction to go through. 
+11. In the Solidity page, after the contract compile, hit Run and choose Integrated Web 3. Hit Create. Give time for the transaction to go through. 
    ![Alt text](/DocumentationImages/Metamask/7-integrated-web3.jpg?raw=true)
-13. Open MetaMask up and you should see the account you created (should be same contract ID).
+12. Open MetaMask up and you should see the account you created (should be same contract ID).
    ![Alt text](/DocumentationImages/Metamask/9-accountbalance.jpg?raw=true) 
-14. Once it is done, go to Rinkeby and check for a transaction by going to the Block Explorer and searching for your Contract ID. 
+13. Once it is done, go to Rinkeby and check for a transaction by going to the Block Explorer and searching for your Contract ID. 
    ![Alt text](/DocumentationImages/Metamask/10-contractcreation.jpg?raw=true)
 
 ### Virtual Machine - Windows Server 2016/ Windows 10
