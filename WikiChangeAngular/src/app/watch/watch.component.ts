@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Observer } from 'rxjs/Observer';
+import * as _ from 'underscore';
 
 import { Article } from '../articles/shared/article.model';
 import { ArticlePost } from '../articles/shared/article-post.model';
@@ -32,22 +33,39 @@ export class WatchComponent implements OnInit, OnDestroy {
   }
 
   reset() {
-    this.model = new ArticlePost('', [new Article()]);
+    this.model = new ArticlePost('', []);
+    this.addArticle();
+  }
+
+  addArticle() {
+    this.model.Articles.push(new Article());
+  }
+
+  removeArticle() {
+    if (this.model.Articles.length > 1) {
+      this.model.Articles.pop();
+    }
   }
 
   onSubmit() {
     const post = () => {
       if (!this.model.UserID) { console.log('User Id required'); return; }
+
       let error = false;
-      for (let i = 0; i < this.model.Articles.length; i++) {
-        if (!this.model.Articles[i].id || !this.model.Articles[i].title) {
-          console.log(`Invalid article url: ${this.model.Articles[i].url}`);
+      const articles = _.filter(this.model.Articles, article => {
+        const notEmpty = article.url && article.url.length > 0;
+        const invalid = notEmpty && (!article.id || !article.title);
+        if (invalid) {
+          console.log(`Invalid article url: ${article.url}`);
           error = true;
         }
-      }
+        return notEmpty;
+      });
+
+      const model = new ArticlePost(this.model.UserID, articles);
 
       if (!error) {
-        this.articleService.post(this.model)
+        this.articleService.post(model)
           .subscribe(res => this.reset(), (err) => console.log(err));
       }
     };
@@ -93,7 +111,9 @@ export class WatchComponent implements OnInit, OnDestroy {
     if (indx >= 0) {
       this.wikiCalls.splice(indx, 1);
     }
-    subscription.unsubscribe();
+    if (subscription) {
+      subscription.unsubscribe();
+    }
   }
 
   complete(observer: Observer<boolean>, error?: any) {

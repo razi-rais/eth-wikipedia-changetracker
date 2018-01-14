@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let article of articles">
-                    <td>{{article.timestamp}}</td>
+                    <td>{{article.timestamp ? article.timestamp.format('L LT') : null}}</td>
                     <td>{{article.user}}</td>
                     <td>{{article.revision_old}}</td>
                     <td>{{article.revision_new}}</td>

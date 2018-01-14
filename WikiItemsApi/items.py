@@ -30,19 +30,19 @@ def save_article():
     cursor = cnxn.cursor()
      
     for i in data['Articles']:
-         print (i['id'])
-         cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = '"+ user_id+"' AND [ArticleID] = '"+i["id"]+"'")
-         row = cursor.fetchone()
          article_id = i['id']
          title = i['title']
          url = i['url']
+         print (article_id)
+         cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE [UserID] = '"+attr(user_id)+"' AND [ArticleID] = '"+attr(article_id)+"'")
+         row = cursor.fetchone()
  
          if row is None:
-             cursor.execute("INSERT INTO [Articles] ([ArticleID] ,[Title] ,[Url] ,[UserID]) VALUES ('"+article_id+"' ,'"+title+"' ,'"+url+"' , '"+user_id +"');")
+            cursor.execute("INSERT INTO [Articles] ([ArticleID] ,[Title] ,[Url] ,[UserID]) VALUES ('"+attr(article_id)+"', '"+attr(title)+"', '"+attr(url)+"', '"+attr(user_id)+"');")
          else:
-            cursor.execute("UPDATE [Articles] SET [ArticleID] = '"+article_id+"' , [Title]='"+title+"' , [Url]='"+url+"' WHERE [UserID] = '"+user_id +"';")
-    
-   cnxn.commit()
+            cursor.execute("UPDATE [Articles] SET [Title]='"+attr(title)+"', [Url]='"+attr(url)+"' WHERE [UserID] = '"+attr(user_id)+"' AND [ArticleID] = '"+attr(article_id)+"';")
+
+    cnxn.commit()
 
    return create_message("Item added/updated successfully",200);
 
@@ -54,7 +54,7 @@ def get_articles_by_userid():
     user_id = request.args.get('userID')
     cnxn = get_sqlcon()
     cursor = cnxn.cursor()
-    cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = '"+ user_id+"'")
+    cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = '"+attr(user_id)+"'")
     row = cursor.fetchone()
     
     data = []
@@ -76,7 +76,7 @@ def get_articleID_by_uri():
         uri = user_id = request.args.get('articleUri')
         cnxn = get_sqlcon()
         cursor = cnxn.cursor()
-        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = '"+uri.replace("'", "''")+"'";
+        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = '"+attr(uri)+"'";
         cursor.execute(query)
         row = cursor.fetchone()
          
@@ -96,6 +96,9 @@ def get_sqlcon():
     conn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
     
     return conn;
+
+def attr(val):
+    return val.replace("'", "''")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
