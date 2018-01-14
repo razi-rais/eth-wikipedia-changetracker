@@ -4,7 +4,7 @@ Setup instructions will be broken down by different environments.  The project w
 # Start Here and choose your OS: 
 Once you have completed the steps for any one of these 3 paths, please move on to the next section. 
 * [Windows / Visual Studio Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/WindowsSetup.md) - Choose this if you are a Windows user and want to set this up using your local machine. 
-* [Mac Setup (Linux will be similar)](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/LinuxSetup.md) - Choose this if you are a Linux user and want to set this up using your local machine. 
+* [Mac Setup (Linux will be similar)](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/LinuxSetup.md) - Choose this if you are a Mac user and want to set this up using your local machine. 
 * [Azure VM - Windows Server 2016](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/VMSetup.md) - Choose this if you prefer to complete this tutorial using an Azure VM.  We will provide an ARM template for easy VM setup with a couple of clicks.  It will have a clean environment and be separate from your local machine, all you need to do is RDP in.  
 
 
