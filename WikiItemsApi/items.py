@@ -34,13 +34,13 @@ def save_article():
          title = i['title']
          url = i['url']
          print (article_id)
-         cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE [UserID] = '"+attr(user_id)+"' AND [ArticleID] = '"+attr(article_id)+"'")
+         cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE [UserID] = ? AND [ArticleID] = ?", user_id, article_id)
          row = cursor.fetchone()
  
          if row is None:
-            cursor.execute("INSERT INTO [Articles] ([ArticleID] ,[Title] ,[Url] ,[UserID]) VALUES ('"+attr(article_id)+"', '"+attr(title)+"', '"+attr(url)+"', '"+attr(user_id)+"');")
+            cursor.execute("INSERT INTO [Articles] ([ArticleID] ,[Title] ,[Url] ,[UserID]) VALUES (?, ?, ?, ?);", article_id, title, url, user_id)
          else:
-            cursor.execute("UPDATE [Articles] SET [Title]='"+attr(title)+"', [Url]='"+attr(url)+"' WHERE [UserID] = '"+attr(user_id)+"' AND [ArticleID] = '"+attr(article_id)+"';")
+            cursor.execute("UPDATE [Articles] SET [Title]=?, [Url]=? WHERE [UserID] = ? AND [ArticleID] = ?;", title, url, user_id, article_id)
 
     cnxn.commit()
 
@@ -54,7 +54,7 @@ def get_articles_by_userid():
     user_id = request.args.get('userID')
     cnxn = get_sqlcon()
     cursor = cnxn.cursor()
-    cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = '"+attr(user_id)+"'")
+    cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = ?", user_id)
     row = cursor.fetchone()
     
     data = []
@@ -76,8 +76,8 @@ def get_articleID_by_uri():
         uri = user_id = request.args.get('articleUri')
         cnxn = get_sqlcon()
         cursor = cnxn.cursor()
-        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = '"+attr(uri)+"'";
-        cursor.execute(query)
+        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = ?";
+        cursor.execute(query, uri)
         row = cursor.fetchone()
          
         while row:
@@ -96,9 +96,6 @@ def get_sqlcon():
     conn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
     
     return conn;
-
-def attr(val):
-    return val.replace("'", "''")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
