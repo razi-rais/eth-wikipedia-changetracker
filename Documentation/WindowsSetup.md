@@ -1,6 +1,6 @@
 
-1. Download the project as a zip file or using Git. 
-2. 
-3. Create a local SQL Server or Azure SQL Server.
-4. Create a SQL database. 
-5. Add the connection string to.. 
+* Download the project as a zip file or using Git. 
+* Create a local SQL Server or Azure SQL Server.
+* Create a SQL database. 
+* Python Packages install instructions
+* Add the connection string to.. 
