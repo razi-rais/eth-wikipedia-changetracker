@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import moment = require('moment');
+import * as moment from 'moment';
 import * as _ from 'underscore';
 
 import { Article } from '../shared/article.model';
