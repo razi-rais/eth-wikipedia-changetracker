@@ -55,6 +55,7 @@ export class ArticleWeb3Service {
 
       getArticles();
 
+      // stop polling on unsubscribe
       return () => {
         if (timeoutId != null) {
           clearTimeout(timeoutId);

@@ -34,7 +34,7 @@ def save_article():
          title = i['title']
          url = i['url']
          print (article_id)
-         cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE [UserID] = ? AND [ArticleID] = ?", user_id, article_id)
+         cursor.execute("SELECT [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE [UserID] = ? AND [ArticleID] = ?", user_id, article_id)
          row = cursor.fetchone()
  
          if row is None:
@@ -50,22 +50,36 @@ def save_article():
 def get_articles_by_userid():
   
   if request.method == 'GET':
-       
+    
     user_id = request.args.get('userID')
     cnxn = get_sqlcon()
     cursor = cnxn.cursor()
-    cursor.execute("SELECT  [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE  [UserID] = ?", user_id)
+    cursor.execute("SELECT [ArticleID] ,[Title] ,[Url] ,[UserID] FROM [Articles] WHERE [UserID] = ?", user_id)
     row = cursor.fetchone()
     
     data = []
 
     while row:
-        item = {"id" : str(row[0]), "title" : str(row[2]), "url" : str(row[3])} 
+        item = {"id" : str(row[0]), "title" : str(row[1]), "url" : str(row[2])} 
         row = cursor.fetchone()
         data.append(item)
-        
+    
     json_data = json.dumps(data)
     return create_message(json_data,200)
+
+@app.route("/api/Articles", methods=['DELETE'])
+def delete_article():
+  
+  if request.method == 'DELETE':
+    
+    user_id = request.args.get('userID')
+    article_id = request.args.get('articleID')
+    cnxn = get_sqlcon()
+    cursor = cnxn.cursor()
+    cursor.execute("DELETE FROM [Articles] WHERE [UserID] = ? AND [ArticleID] = ?", user_id, article_id)
+    row = cursor.commit()
+    
+    return create_message('',200)
 
 @app.route("/api/GetArticleIdByUri", methods=['GET'])
 def get_articleID_by_uri():
@@ -76,7 +90,7 @@ def get_articleID_by_uri():
         uri = user_id = request.args.get('articleUri')
         cnxn = get_sqlcon()
         cursor = cnxn.cursor()
-        query = "SELECT  [ArticleID] FROM [Articles] WHERE  [Url] = ?";
+        query = "SELECT [ArticleID] FROM [Articles] WHERE [Url] = ?";
         cursor.execute(query, uri)
         row = cursor.fetchone()
          

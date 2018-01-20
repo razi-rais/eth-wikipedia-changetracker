@@ -11,28 +11,50 @@
       <div class="x_panel">
         <div class="x_content">
 
-          <form (ngSubmit)="onSubmit()" #watchForm="ngForm" class="form-horizontal form-label-left" novalidate>
-            <p>
-              Enter a Wikipedia URL in order to add a watch to it.
-            </p>
-            <span class="section"></span>
-            <br />
+          <div class="form-horizontal form-label-left">
             <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userId">
+              <label class="control-label col-md-1 col-sm-1 col-xs-12" for="userId">
                 User ID
-                <span class="required">*</span>
               </label>
               <div class="col-md-1 col-sm-1 col-xs-12">
-                <input id="userId" [(ngModel)]="model.UserID" name="userId" class="form-control col-md-7 col-xs-12" placeholder="10" required
-                  type="text">
-              </div>
-              <div class="col-md-5 col-sm-5 col-xs-12 right-align">
-                  <button type="button" class="btn btn-success" (click)="addArticle();" tabindex="-1">+</button>
-                  <button type="button" class="btn btn-danger" (click)="removeArticle();" [disabled]="model.Articles.length <= 1">-</button>
+                <input id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="10" required type="text" (blur)="getWatching()">
               </div>
             </div>
+          </div>
 
-            <div *ngFor="let article of model.Articles; index as i" class="spacing">
+          <p>
+            Watching Wikipedia articles.
+          </p>
+          <span class="section"></span>
+
+          <table class="table table-striped projects">
+            <thead>
+              <tr>
+                <th style="width: 60px"></th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let article of watching">
+                <td>
+                  <button type="button" class="btn btn-danger btn-xs" (click)="delete(article)">Delete</button>
+                </td>
+                <td>{{article.id}}</td>
+                <td>{{article.title}}</td>
+                <td>{{article.url}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            Enter a Wikipedia URL in order to add a watch to it.
+          </p>
+          <span class="section"></span>
+
+          <form (ngSubmit)="onSubmit()" #watchForm="ngForm" class="form-horizontal form-label-left" novalidate>
+            <div *ngFor="let article of newArticles; index as i" class="spacing">
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url{{i}}">
                   URL
@@ -54,14 +76,19 @@
                   Title
                 </label>
                 <div class="col-md-4 col-sm-4 col-xs-12">
-                  <input id="title{{i}}" [(ngModel)]="article.title" name="title{{i}}" class="form-control col-md-7 col-xs-12" type="text" disabled>
+                  <input id="title{{i}}" [(ngModel)]="article.title" name="title{{i}}" class="form-control col-md-7 col-xs-12" type="text"
+                    disabled>
                 </div>
               </div>
             </div>
 
             <div class="ln_solid"></div>
             <div class="form-group">
-              <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-3 col-md-offset-3">
+                  <button type="button" class="btn btn-danger" (click)="removeArticle();" [disabled]="newArticles.length <= 1">-</button>
+                  <button type="button" class="btn btn-success" (click)="addArticle();">+</button>
+                </div>
+              <div class="col-md-3 right-align">
                 <button type="button" class="btn btn-default" (click)="reset(); watchForm.reset();">Cancel</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

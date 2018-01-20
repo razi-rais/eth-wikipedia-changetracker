@@ -11,11 +11,11 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
-  get(userId: number): Observable<Article[]> {
+  get(userId: string): Observable<Article[]> {
     return this.http.get<any>(CONFIG.baseUrls.articles,
       {
         params: new HttpParams()
-          .set('userID', userId.toString())
+          .set('userID', userId)
       })
       .map(response => {
         const data = JSON.parse(response.message);
@@ -31,8 +31,18 @@ export class ArticleService {
   }
 
   post(articlePost: ArticlePost) {
-    return this.http.post<any>(CONFIG.baseUrls.articles, articlePost)
+    return this.http.post<ArticlePost>(CONFIG.baseUrls.articles, articlePost)
       .catch(error => this.handleError(error, 'Error saving article watch!'));
+  }
+
+  delete(userId: string, articleId: string) {
+    return this.http.delete<any>(CONFIG.baseUrls.articles,
+      {
+        params: new HttpParams()
+          .set('userID', userId)
+          .set('articleID', articleId)
+      })
+      .catch(error => this.handleError(error, 'Error deleting article watch!'));
   }
 
   private handleError<T>(error: HttpErrorResponse, msg: string) {
