@@ -13,10 +13,10 @@ The SQL database will keep all of the user information, article information (URL
 *This project and documentation was created by Razi Rais, Crystal Tenn, and Viktor Dikov.* 
 
 # App Walkthrough
-* [App Walkthrough](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/AppWalkthrough) - Simple Walkthrough of the app as an end user. Displays the purpose and usage of the application with screenshots. 
+* [App Walkthrough](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/AppWalkthrough) - Simple walkthrough of the app as an end user. Displays the purpose and usage of the application with screenshots. 
 
 # Setup Instructions 
-* [Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md) - Setup instructions are provided for both Windows and Linux. 
+* [Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md) - Setup instructions are provided for both Windows and Mac/Linux. 
 
 # Architecture Diagram
 TODO
