@@ -15,6 +15,14 @@
     ![Alt text](/DocumentationImages/Setup/arm-setup.jpg?raw=true)
     *(Screenshot pertains to steps 3-8)*
 
+9. Allow 15-20 minutes for the VM to deploy on Azure. 
+10. Once it is deployed, navigate to the resource in Azure.
+11. Download the RDP file. 
+12. Login using your credentials that you used to setup the VM in the previous steps. 
+13. Your VM should look like this:
+14. Open Server Manager. Disable IE Security. 
+15. Once all of these steps are completed, you can go back to the previous tutorial page and start setting up the Application.  The next section on this page simply has more detais for your reference about the VM you just provisioned.  
+
 # ARM template info (from step 2)
 Azure ARM template that creates Azure Windows VM with following software installed:
 * Windows Server 2016
