@@ -10,17 +10,17 @@
         * Docker for Windows (Latest version - Edge Release)
         * Visual Studio Code (Solidity extension installed later)
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Frazi-rais%2Fblockchain%2Fmaster%2Ftemplates%2Faz-blockchain-win-vm.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-<a href="http://armviz.io/#/?load=https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Frazi-rais%2Fblockchain%2Fmaster%2Ftemplates%2Faz-blockchain-win-vm.json" target="_blank">
-    <img src="http://armviz.io/visualizebutton.png"/>
-</a>
+        <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Frazi-rais%2Fblockchain%2Fmaster%2Ftemplates%2Faz-blockchain-win-vm.json" target="_blank">
+            <img src="http://azuredeploy.net/deploybutton.png"/>
+        </a>
+        <a href="http://armviz.io/#/?load=https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Frazi-rais%2Fblockchain%2Fmaster%2Ftemplates%2Faz-blockchain-win-vm.json" target="_blank">
+            <img src="http://armviz.io/visualizebutton.png"/>
+        </a>
 
-3a. Choose your Azure subscription if you have multiple.  The one in the screenshot is using Visual Studio Enterprise from an MSDN subscription. Your subscription name may be different.
-3b. Create a new resource group in the location nearest to you.
-3c. Add a username that is easy for you to remember, by default you can use 'super'. 
-3d. Create a password that you can remember, if you want to have a default that fits the password requirements you can use 'P@ssw0rd123!'.
-4d. Check the box for agreeing to the terms and conditions. 
-5d. Click Publish. 
+3. Choose your Azure subscription if you have multiple.  The one in the screenshot is using Visual Studio Enterprise from an MSDN subscription. Your subscription name may be different.
+4. Create a new resource group in the location nearest to you.
+5. Add a username that is easy for you to remember, by default you can use 'super'. 
+6. Create a password that you can remember, if you want to have a default that fits the password requirements you can use 'P@ssw0rd123!'.
+7. Check the box for agreeing to the terms and conditions. 
+8. Click Publish. 
 
