@@ -7,13 +7,17 @@ Once you have completed the steps for any one of these 3 paths, please move on t
 * [Mac Setup (Linux will be similar)](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/LinuxSetup.md) - Choose this if you are a Mac user and want to set this up using your local machine. 
 * [Azure VM - Windows Server 2016](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/VMSetup.md) - Choose this if you prefer to complete this tutorial using an Azure VM.  We will provide an ARM template for easy VM setup with a couple of clicks.  It will have a clean environment and be separate from your local machine, all you need to do is RDP in.  
 
-# Opening the Application
+# Opening & Running the Back-end Application
+These steps will show usage with Visual Studio as the IDE, however you can use any IDE you like and do equivalent steps and use this as a guide. 
 1. Open the WikiChangeTracker.sln in Visual Studio (or open projects in another IDE).
-2. Open Visual Studio Code.
-3. In Visual Studio Code, open a folder, navigate to this downloaded project, open the folder called: WikiChangeAngular
+2. You will see the following projects:
 
-# Running the Application
-1. TODO
+3. Right click properties and ensure these are the startup projects.
+4. Click Run or press F5.
+
+# Opening & Running the Front-end Application
+1. Open Visual Studio Code.
+2. In Visual Studio Code, open a folder, navigate to this downloaded project, open the folder called: WikiChangeAngular
 
 # Setup Rinkeby and Get Free Ether
 1. Install geth.
