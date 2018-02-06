@@ -12,6 +12,9 @@
 7. Check the box for agreeing to the terms and conditions. 
 8. Click Publish. 
 
+    ![Alt text](/DocumentationImages/Setup/arm-setup.jpg?raw=true)
+    *(Screenshot pertains to steps 3-8)*
+
 # ARM template info (from step 2)
 Azure ARM template that creates Azure Windows VM with following software installed:
 * Windows Server 2016
