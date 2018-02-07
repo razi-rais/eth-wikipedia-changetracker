@@ -26,7 +26,7 @@
 # ARM template info (from step 2)
 Azure ARM template that creates Azure Windows VM with following software installed:
 * Windows Server 2016
-* Geth (v 1.7.2)
+* Geth (v 1.7.3)
 * Nodejs (Latest version) | (For Truffle and Remix that are installed using npm later)
 * Google Chrome (For Metamask that is installed later)
 * Docker for Windows (Latest version - Edge Release)
