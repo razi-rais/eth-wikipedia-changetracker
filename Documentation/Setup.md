@@ -9,6 +9,9 @@ Once you have completed the steps for any one of these 3 paths, please move on t
 
 # Opening & Running the Back-end Application
 These steps will show usage with Visual Studio as the IDE, however you can use any IDE you like and do equivalent steps and use this as a guide. 
+
+TO DO : ODBC driver
+
 1. Open the WikiChangeTracker.sln in Visual Studio (or open projects in another IDE).
 2. You will see the following projects:
 
