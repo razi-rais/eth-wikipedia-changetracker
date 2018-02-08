@@ -9,4 +9,4 @@ If you are running Windows locally and would like to setup the application on yo
 5. Add the connection string to.. 
 6. Python Packages install instructions 
 7. Install the OD
-8. [Click here to go to the application setup page.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Windows.md)
+8. [Click here to go to the application setup page.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/WindowsApplicationSetup.md)
