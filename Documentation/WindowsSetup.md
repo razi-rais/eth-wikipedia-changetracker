@@ -6,4 +6,4 @@
 * Add the connection string to.. 
 
 
-[Click Here to go back to Setup page](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
+[Click here to go back to setup page](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
