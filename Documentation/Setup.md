@@ -1,14 +1,37 @@
 # Setup Introduction
 Setup instructions will be broken down by different environments.  The project was built in Python so it would be more cross platform. If you would like to use a VM to ensure everything is in a clean environment, we have an Azure ARM template that you can deploy with easily just by clicking below.  Otherwise, you are welcome to use your local machines.  You do not need to use Visual Studio or Visual Studio Code if you have another IDE in mind.   
 
-# Start Here and choose your OS: 
-Once you have completed the steps for any one of these 3 paths, please move on to the next section. 
+# Start Here, Choose Your OS, and Install Required Software: 
+Once you have completed the steps for any one of these 3 paths, please move on to the next section labeled "Setup Rinkeby and Get Free Ether". 
 * [Windows / Visual Studio Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/WindowsSetup.md) - Choose this if you are a Windows user and want to set this up using your local machine. 
 * [Mac Setup (Linux will be similar)](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/LinuxSetup.md) - Choose this if you are a Mac user and want to set this up using your local machine. 
 * [Azure VM - Windows Server 2016](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/VMSetup.md) - Choose this if you prefer to complete this tutorial using an Azure VM.  We will provide an ARM template for easy VM setup with a couple of clicks.  It will have a clean environment and be separate from your local machine, all you need to do is RDP in.  
 
+# Opening & Running the Back-end Application
+These steps will show usage with Visual Studio as the IDE, however you can use any IDE you like and do equivalent steps and use this as a guide. 
 
-# Setup Rinkeby and get free ether
+TO DO : ODBC driver
+
+1. Open the WikiChangeTracker.sln in Visual Studio (or open projects in another IDE).
+2. You will see the following projects:
+
+3. Right click properties and ensure these are the startup projects.
+4. Click Run or press F5.
+
+# Opening & Running the Front-end Application
+#### Front-end first time setup: 
+1. Install https://nodejs.org/en/
+2. Run `npm install @angular/cli -g`
+
+#### Front-end general every time setup:
+1. Open Visual Studio Code.
+2. In Visual Studio Code, open a folder, navigate to this downloaded project, open the folder called: WikiChangeAngular
+3. Open the Terminal
+4. Run `npm install` inside the Terminal in the WikiChangeAngular folder.
+5. Run `npm start`
+6. Open your browser on http://localhost:4200/ 
+
+# Setup Rinkeby and Get Free Ether
 1. Install geth.
 2. Open up a command line (we will refer to this as command window #1) and run the following (replace path with the path where your geth.exe file lives): 
    ```
