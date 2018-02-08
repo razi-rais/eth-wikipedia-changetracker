@@ -27,4 +27,4 @@
 12. Login using your credentials that you used to setup the VM in the previous steps. 
 13. Your VM should look like this:
 14. Open Server Manager. Disable IE Security. 
-15. Once all of these steps are completed, you can go back to the previous tutorial page and start setting up the Application.  The next section on this page simply has more detais for your reference about the VM you just provisioned.  [Click here to go back to setup page](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
+15. Once all of these steps are completed, you can go back to the previous tutorial page and start setting up the Application.  The next section on this page simply has more detais for your reference about the VM you just provisioned.  [Click here to go back to the setup page.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
