@@ -4,3 +4,6 @@
 * Create a SQL database. 
 * Python Packages install instructions
 * Add the connection string to.. 
+
+
+[Click Here to go back to Setup page](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
