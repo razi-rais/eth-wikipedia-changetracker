@@ -14,26 +14,38 @@
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-            <table class="table table-striped projects">
-                <thead>
-                  <tr>
-                    <th style="width: 250px;">Date Time</th>
-                    <th>Changed By</th>
-                    <th style="width: 10%">Old Id</th>
-                    <th style="width: 10%">New Id</th>
-                    <th>Comment</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let article of articles">
-                    <td>{{article.timestamp ? article.timestamp.format('L LT') : null}}</td>
-                    <td>{{article.user}}</td>
-                    <td>{{article.revision_old}}</td>
-                    <td>{{article.revision_new}}</td>
-                    <td>{{article.comment}}</td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="article-container">
+            <mat-table #table [dataSource]="dataSource" matSort>
+
+              <ng-container matColumnDef="timestamp">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>
+                <mat-cell *matCellDef="let article"> {{article.timestamp ? article.timestamp.format('L LT') : null}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="user">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Changed By </mat-header-cell>
+                <mat-cell *matCellDef="let article"> {{article.user}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="revision_old">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Old Id </mat-header-cell>
+                <mat-cell *matCellDef="let article"> {{article.revision_old}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="revision_new">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> New Id </mat-header-cell>
+                <mat-cell *matCellDef="let article"> {{article.revision_new}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="comment">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Comment </mat-header-cell>
+                <mat-cell *matCellDef="let article"> {{article.comment}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
         </div>
       </div>
     </div>

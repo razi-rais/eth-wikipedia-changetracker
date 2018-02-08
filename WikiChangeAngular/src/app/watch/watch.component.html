@@ -27,28 +27,39 @@
           </p>
           <span class="section"></span>
 
-          <table class="table table-striped projects">
-            <thead>
-              <tr>
-                <th style="width: 60px"></th>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Url</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let article of watching">
-                <td>
-                  <button type="button" class="btn btn-danger btn-xs" (click)="delete(article)">Delete</button>
-                </td>
-                <td>{{article.id}}</td>
-                <td>{{article.title}}</td>
-                <td>{{article.url}}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="watch-container">
+            <mat-table #table [dataSource]="dataSource" matSort>
 
-          <p>
+              <ng-container matColumnDef="delete">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let article">
+                  <button type="button" class="btn btn-danger btn-xs" (click)="delete(article)">Delete</button>
+                </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let article"> {{article.id}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+                <mat-cell *matCellDef="let article"> {{article.title}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="url">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Article URL </mat-header-cell>
+                <mat-cell *matCellDef="let article">
+                  <a href="{{article.url}}" target="_blank">{{article.url}}</a>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+
+          <p class="spacing">
             Enter a Wikipedia URL in order to add a watch to it.
           </p>
           <span class="section"></span>
@@ -84,10 +95,10 @@
 
             <div class="ln_solid"></div>
             <div class="form-group">
-                <div class="col-md-3 col-md-offset-3">
-                  <button type="button" class="btn btn-danger" (click)="removeArticle();" [disabled]="newArticles.length <= 1">-</button>
-                  <button type="button" class="btn btn-success" (click)="addArticle();">+</button>
-                </div>
+              <div class="col-md-3 col-md-offset-3">
+                <button type="button" class="btn btn-danger" (click)="removeArticle();" [disabled]="newArticles.length <= 1">-</button>
+                <button type="button" class="btn btn-success" (click)="addArticle();">+</button>
+              </div>
               <div class="col-md-3 right-align">
                 <button type="button" class="btn btn-default" (click)="reset(); watchForm.reset();">Cancel</button>
                 <button type="submit" class="btn btn-primary">Submit</button>

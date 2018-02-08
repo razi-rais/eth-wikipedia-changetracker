@@ -1,7 +1,11 @@
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+
+import { AppMaterialModule } from './app-material.module';
 
 import './core/rxjs-extensions';
 import { AppComponent } from './app.component';
@@ -27,9 +31,12 @@ import { WikiService } from './articles/shared/wiki.service';
     HttpClientModule,
     HttpClientJsonpModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
 
     CoreModule,
+
+    AppMaterialModule,
 
     AppRoutingModule
   ],
@@ -45,3 +52,5 @@ import { WikiService } from './articles/shared/wiki.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

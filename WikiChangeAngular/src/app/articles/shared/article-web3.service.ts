@@ -43,8 +43,7 @@ export class ArticleWeb3Service {
               article.timestamp = moment.unix(parseInt(ev.returnValues['timestamp'], 10));
               article.user = atob(ev.returnValues['user']);
               return article;
-            }
-            ));
+            }));
             timeoutId = setTimeout(getArticles, CONFIG.web3.pollInteval);
           })
           .catch((error) => {

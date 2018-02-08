@@ -1,0 +1,51 @@
+.article-list-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+    color: black;
+}
+
+.mat-header-row {
+    position: sticky;
+    top: 0;
+    background: white;
+    min-height: 30px;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+}
+
+.mat-header-row,
+.mat-row {
+    padding: 0;
+}
+
+.mat-column-view {
+    max-width: 65px;
+}
+
+.mat-column-id {
+    max-width: 45px;
+}
+
+.mat-column-name {
+    max-width: 30%;
+    padding-right: 5px;
+}
+
+.mat-column-url {
+    padding-right: 5px;
+}
+
+.mat-column-mostRecentChange {
+    max-width: 140px;
+}

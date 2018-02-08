@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Observer } from 'rxjs/Observer';
+import { MatTableDataSource, MatSort } from '@angular/material';
 import * as _ from 'underscore';
 
 import { Article } from '../articles/shared/article.model';
@@ -20,6 +21,10 @@ export class WatchComponent implements OnInit, OnDestroy {
   userId: string;
   watching: Article[];
   newArticles: Article[];
+  displayedColumns = ['delete', 'id', 'name', 'url'];
+  dataSource = new MatTableDataSource<Article>(this.watching);
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private articleService: ArticleService,
@@ -27,6 +32,7 @@ export class WatchComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.dataSource.sort = this.sort;
     this.userId = '10';
     this.reset();
     this.getWatching();
@@ -43,8 +49,12 @@ export class WatchComponent implements OnInit, OnDestroy {
 
   getWatching() {
     this.watching = [];
+    this.dataSource.data = this.watching;
     this.sub.add(this.articleService.get(this.userId)
-      .subscribe(watching => this.watching = watching));
+      .subscribe(watching => {
+        this.watching = watching;
+        this.dataSource.data = this.watching;
+      }));
   }
 
   delete(article: Article) {
