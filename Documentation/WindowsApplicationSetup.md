@@ -15,13 +15,27 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 
 6. Right-click the WikiItemsApi project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments and fill them in with your Azure SQL or local credentials: `"URL or Local DB path" "DatabaseName" "SQLUsername" "SQLPassword"`
 
-7. We need to deploy our contract now using the web Remix IDE. 
+7. Open up a PowerShell command prompt as Admin and run this command: `geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048 --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"`
 
-8. 
+8. Wait 2-3 minutes, then open up a second PowerShell command prompt as Admin and run this command: `geth.exe attach`
+ 
+7. We need to deploy our contract now using the web Remix IDE. In your downloaded project, go to the Contract folder, and open the WikiChangeTracker.sol in Notepad or some file reader. 
 
-9. Right-click the WikiBlockApi project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments (leave the first value, the second replace with your contract ID, the third is the account address, and the fourth is the password you setup for the account): "http://127.0.0.1:8545" "0x63825D2448Ae9175B84b04b4DB8Fe4f35ef7B8De" "0xCb0C4471a93c7955177e4E6e4cC71f8dFf5E6DDA" "asdf" 
+8. Copy and paste the contract into the Remix IDE website: https://remix.ethereum.org/
 
-5. Click Run or press F5.
+10. Choose web3 provider and add the endpoint: http://localhost:8545 (which will connect you to geth which you just ran in command line)
+
+11. Click Create. This will deploy the Solidity contract. 
+
+12. Get the contract ID from.. 
+ 
+13. Create an account..
+
+14. In the second PowerShell command prompt, type the commmand `personal`
+
+15. Right-click the WikiBlockApi project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments (leave the first value, the second replace with your contract ID, the third is the account address, and the fourth is the password you setup for the account): "http://127.0.0.1:8545" "0x63825D2448Ae9175B84b04b4DB8Fe4f35ef7B8De" "0xCb0C4471a93c7955177e4E6e4cC71f8dFf5E6DDA" "asdf" 
+
+16. Go back to Visual Studio, and click Run or press F5.
 
 ## Opening & Running the Front-end Application
 #### Front-end first time setup: 
@@ -38,8 +52,6 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 
 ## Opening & Running the Front-end Application
 
-C:\ethereum\geth-windows-amd64-1.7.2-1db4ecdc\geth.exe attach
 
-C:\ethereum\geth-windows-amd64-1.7.2-1db4ecdc\geth.exe --rinkeby --rpc --rpcapi db,eth,net,web3,personal --cache=2048 --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*"
 
 Once your front-end and back-end are setup, [click here to go setup Rinkeby.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
