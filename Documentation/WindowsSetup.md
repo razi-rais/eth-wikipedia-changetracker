@@ -9,4 +9,5 @@ If you are running Windows locally and would like to setup the application on yo
 5. Add the connection string to the Python code. *
 6. Python Packages install instructions:  *
 7. Install Chrome, if you don't have it.  Then, install MetaMask which is a Chrome Extension, instructions are here: https://metamask.io
-8. At this point your local machine should be setup. [Click here to go to the application setup page.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/WindowsApplicationSetup.md)
+8. Install geth by following these instructions: https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windows
+9. At this point your local machine should be setup. [Click here to go to the application setup page.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/WindowsApplicationSetup.md)
