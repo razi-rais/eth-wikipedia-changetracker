@@ -49,9 +49,4 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 4. Run `npm install` inside the Terminal in the WikiChangeAngular folder.
 5. Run `npm start`
 6. Open your browser on http://localhost:4200/ 
-
-## Opening & Running the Front-end Application
-
-
-
-Once your front-end and back-end are setup, [click here to go setup Rinkeby.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
+7. Once your front-end and back-end are setup, [click here to go setup Rinkeby.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
