@@ -35,7 +35,9 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 
 15. Right-click the WikiBlockApi project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments (leave the first value, the second replace with your contract ID, the third is the account address, and the fourth is the password you setup for the account): "http://127.0.0.1:8545" "0x63825D2448Ae9175B84b04b4DB8Fe4f35ef7B8De" "0xCb0C4471a93c7955177e4E6e4cC71f8dFf5E6DDA" "asdf" 
 
-16. Go back to Visual Studio, and click Run or press F5.
+16. Restore the Python packages by...
+
+17. Go back to Visual Studio, and click Run or press F5.
 
 ## Opening & Running the Front-end Application
 #### Front-end first time setup: 
