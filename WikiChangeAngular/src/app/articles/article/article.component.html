@@ -24,17 +24,23 @@
 
               <ng-container matColumnDef="user">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Changed By </mat-header-cell>
-                <mat-cell *matCellDef="let article"> {{article.user}} </mat-cell>
+                <mat-cell *matCellDef="let article">
+                  <a href="{{getUserUrl(article)}}" target="_blank">{{article.user}}</a>
+                </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="revision_old">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Old Id </mat-header-cell>
-                <mat-cell *matCellDef="let article"> {{article.revision_old}} </mat-cell>
+                <mat-cell *matCellDef="let article">
+                  <a href="{{getRevisionOldUrl(article)}}" target="_blank">{{article.revision_old}}</a>
+                </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="revision_new">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> New Id </mat-header-cell>
-                <mat-cell *matCellDef="let article"> {{article.revision_new}} </mat-cell>
+                <mat-cell *matCellDef="let article">
+                  <a href="{{getRevisionNewUrl(article)}}" target="_blank">{{article.revision_new}}</a>
+                </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="comment">
