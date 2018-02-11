@@ -92,6 +92,7 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 
 1. Open the WikiChangeTracker.sln in Visual Studio (or open projects in another IDE).
 2. You will see the following projects:
+
   ![Alt text](/DocumentationImages/Setup/SolutionExplorer.jpg?raw=true)
   
 3. Right click properties and ensure these are the startup projects.
@@ -122,5 +123,4 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 3. Open the Terminal
   ![Alt text](/DocumentationImages/Setup/vscodeterminal.jpg?raw=true)
 4. Run `npm run start`
-5. Open your browser on http://localhost:4200/ 
-
+5. Open your browser on http://localhost:4200/ and you will have a working application! Please see the [App Walkthrough](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/AppWalkthrough.md) for how to use the application. 
