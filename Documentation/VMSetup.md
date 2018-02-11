@@ -27,4 +27,4 @@
 12. Login using your credentials that you used to setup the VM in the previous steps. 
 13. Your VM should look like this:
 14. Open Server Manager. Disable IE Security. 
-15. [Click here to go to the application setup page.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/WindowsApplicationSetup.md)
+15. At this point your local machine should be setup. [Click here to go back to the setup page and to get started on setting up Rinkeby.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
