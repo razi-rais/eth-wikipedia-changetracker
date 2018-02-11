@@ -33,4 +33,3 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 3. Open the Terminal
 4. Run `npm run start`
 5. Open your browser on http://localhost:4200/ 
-6. Once your front-end and back-end are setup, [click here to go setup Rinkeby.](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md)
