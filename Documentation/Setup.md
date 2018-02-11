@@ -81,12 +81,13 @@ Once you have completed the steps for any one of these 3 paths, please move on t
 
 13. Immediately after hitting Create, you can see your Contract ID in Remix here, just hit the little copy icon with the red arrow on it in the screenshot.  In your Notepad with the account and password, please add the Contract ID, we will need all of those later:
    ![Alt text](/DocumentationImages/Rinkeby/RinkebyContractId1.jpg?raw=true)
+   
 14. Once it is done, go to Rinkeby and check for a transaction by going to the Block Explorer and searching for your Contract ID. 
    ![Alt text](/DocumentationImages/Metamask/10-contractcreation.jpg?raw=true)
 15. If you ever forget your Contract ID, you can retrieve it from Rinkeby by clinking Contract Creation here:
    ![Alt text](/DocumentationImages/Rinkeby/RinkebyContractId2.jpg?raw=true)
 16. Then on the next page it will be displayed here: 
-   ![Alt text](/DocumentationImages/Rinkeby/RinkebyContractId3jpg?raw=true)
+   ![Alt text](/DocumentationImages/Rinkeby/RinkebyContractId3.jpg?raw=true)
    
 ## Opening & Running the Back-end Application
 These steps will show usage with Visual Studio as the IDE, however you can use any IDE you like and do equivalent steps and use this as a guide. 
