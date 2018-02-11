@@ -40,13 +40,7 @@ export class ArticleListComponent implements OnInit, OnDestroy {
           .groupBy('id')
           .map(group => _.max(group, article => article.timestamp))
           .value();
-        const tempData = [];
-        for (let i = 0; i < 10; i++) {
-          const clone = _.clone(this.articles[0]);
-          clone.id = (parseInt(clone.id, 10) + i).toString();
-          tempData.push(clone);
-        }
-        this.dataSource.data = tempData;
+        this.dataSource.data = this.articles;
       }, error => { });
   }
 

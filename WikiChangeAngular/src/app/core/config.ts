@@ -1,8 +1,12 @@
 export let CONFIG = {
     baseUrls: {
         articles: '/api/Articles',
-        wiki: 'https://en.wikipedia.org/wiki/',
         wikiApi: 'https://en.wikipedia.org/w/api.php',
+        wiki: 'https://en.wikipedia.org/wiki/',
+        wikiUser: 'https://en.wikipedia.org/wiki/User:{user}',
+        wikiRevisionOld: 'https://en.wikipedia.org/w/index.php?title={title}&oldid={revision_old}',
+        wikiRevisionNew: 'https://en.wikipedia.org/w/index.php?title={title}&oldid={revision_new}',
+        wikiContributions: 'https://en.wikipedia.org/wiki/Special:Contributions/{user}',
         web3: 'http://localhost:8545',
     },
     web3: {
