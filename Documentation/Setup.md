@@ -30,7 +30,7 @@ Once you have completed the steps for any one of these 3 paths, please move on t
    personal.listAccounts
    ```
    ![Alt text](/DocumentationImages/Rinkeby/4-listaccounts.jpg?raw=true)
-6. Get the account ID from the command above (in green text in screenshot above) and save this in a Notepad.
+6. Get the account ID from the command above (in green text in screenshot above) and save the account ID and Password in a Notepad.
 7. Go to the following URL: https://www.rinkeby.io/#faucet
    ![Alt text](/DocumentationImages/Rinkeby/5-rinkeby.jpg?raw=true)
 8. Click on the "Tweet" link and paste your account ID into the 0x00000000... and Tweet it to your Twitter account. 
@@ -74,9 +74,47 @@ Once you have completed the steps for any one of these 3 paths, please move on t
 9. Now, refresh Chrome with the Solidity page.
 10. Open MetaMask and choose the Rinkeby Test Network. 
    ![Alt text](/DocumentationImages/Metamask/8-rinkebytestnet.jpg?raw=true)
-11. In the Solidity page, after the contract compile, hit Run and choose Integrated Web 3. Hit Create. Give time for the transaction to go through. 
+11. In the Solidity page, after the contract compile, hit Run and choose Integrated Web3. Hit Create. Give time for the transaction to go through (you can click on the screenshot below if you need to see a larger version of it in a new tab). 
    ![Alt text](/DocumentationImages/Metamask/7-integrated-web3.jpg?raw=true)
 12. Open MetaMask up and you should see the account you created (should be same contract ID).
    ![Alt text](/DocumentationImages/Metamask/9-accountbalance.jpg?raw=true) 
-13. Once it is done, go to Rinkeby and check for a transaction by going to the Block Explorer and searching for your Contract ID. 
+
+13. Immediately after hitting Create, you can see your Contract ID in Remix here, just hit the little copy icon with the red arrow on it in the screenshot.  In your Notepad with the account and password, please add the Contract ID, we will need all of those later:
+
+14. Once it is done, go to Rinkeby and check for a transaction by going to the Block Explorer and searching for your Contract ID. 
    ![Alt text](/DocumentationImages/Metamask/10-contractcreation.jpg?raw=true)
+15. If you ever forget your Contract ID, you can retrieve it from Rinkeby by clinking Contract Creation here:
+16. Then on the next page it will be displayed here: 
+
+## Opening & Running the Back-end Application
+These steps will show usage with Visual Studio as the IDE, however you can use any IDE you like and do equivalent steps and use this as a guide. 
+
+1. Open the WikiChangeTracker.sln in Visual Studio (or open projects in another IDE).
+2. You will see the following projects:
+
+3. Right click properties and ensure these are the startup projects.
+
+4. Select Multiple startup projects and select the Action for all 3 to Start. Click OK. 
+
+5. Right-click the WikiChangeTracker project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments: `"http://localhost:8081/" "http://localhost:8080/api/GetArticleIdByUri?articleUri=" "https://stream.wikimedia.org/v2/stream/recentchange"`
+
+6. Right-click the WikiItemsApi project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments and fill them in with your Azure SQL or local credentials: `"URL or Local DB path" "DatabaseName" "SQLUsername" "SQLPassword"`
+
+7. Right-click the WikiBlockApi project and select Properties. Remember the Notepad you saved the account, password, and contract ID on in the previous section? On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments (leave the first value, the second replace with your contract ID, the third is the account (AKA address), and the fourth is the password you setup for the account): "http://127.0.0.1:8545" "0x63825D2448Ae9175B84b04b4DB8Fe4f35ef7B8De" "0xCb0C4471a93c7955177e4E6e4cC71f8dFf5E6DDA" "asdf" 
+
+8. Restore the Python packages by...
+
+9. Go back to Visual Studio, and click Run or press F5.
+
+## Opening & Running the Front-end Application
+#### Front-end first time setup: 
+1. Install https://nodejs.org/en/
+2. Run `npm install @angular/cli -g`
+3. Run `npm install` inside the Terminal in the WikiChangeAngular folder.
+
+#### Front-end general every time setup:
+1. Open Visual Studio Code.
+2. In Visual Studio Code, open a folder, navigate to this downloaded project, open the folder called: WikiChangeAngular
+3. Open the Terminal
+4. Run `npm run start`
+5. Open your browser on http://localhost:4200/ 
