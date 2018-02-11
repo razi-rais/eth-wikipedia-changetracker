@@ -22,6 +22,7 @@ We are taking the ID from the above in order to save as a unique identifier in o
 5. Now go back to the Dashboard page which should have at least 1 page watched from the previous step. It should look something like this:
 
 6. Notice the table has details.  The button options are < 24 hours, < 48 hours, or > 48 hours (this indicates how recent the last change was to any page you watched).  Note: The pages watched do have a history of changes, however these are not part of the "latest change" if they occurred before that time you added the page to be watched.  From the time you watch the page on our app and forward, any new changes will be caught by us and can trigger the latest change button. 
-
+   ![Alt text](/DocumentationImages/AppWalkthrough/dashboardWithItem.png?raw=true)
 
 7. Click on a specific entry for more details.  You will be taken to another page that has more info about each transactional change and will be like the following screenshot: 
+   ![Alt text](/DocumentationImages/AppWalkthrough/details.png?raw=true)
