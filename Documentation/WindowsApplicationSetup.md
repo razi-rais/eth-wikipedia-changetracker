@@ -7,8 +7,10 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 1. Open the WikiChangeTracker.sln in Visual Studio (or open projects in another IDE).
 2. You will see the following projects:
   ![Alt text](/DocumentationImages/Setup/SolutionExplorer.jpg?raw=true)
+  
 3. Right click properties and ensure these are the startup projects.
   ![Alt text](/DocumentationImages/Setup/setstartup.jpg?raw=true)
+
 4. Select Multiple startup projects and select the Action for all 3 to Start. Click OK. 
   ![Alt text](/DocumentationImages/Setup/startupprojects.jpg?raw=true)
 5. Right-click the WikiChangeTracker project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments: `"http://localhost:8081/" "http://localhost:8080/api/GetArticleIdByUri?articleUri=" "https://stream.wikimedia.org/v2/stream/recentchange"`
@@ -31,5 +33,6 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 1. Open Visual Studio Code.
 2. In Visual Studio Code, open a folder, navigate to this downloaded project, open the folder called: WikiChangeAngular
 3. Open the Terminal
+  ![Alt text](/DocumentationImages/Setup/vscodeterminal.jpg?raw=true)
 4. Run `npm run start`
 5. Open your browser on http://localhost:4200/ 
