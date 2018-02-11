@@ -85,23 +85,24 @@ Once you have completed the steps for any one of these 3 paths, please move on t
    ![Alt text](/DocumentationImages/Metamask/10-contractcreation.jpg?raw=true)
 15. If you ever forget your Contract ID, you can retrieve it from Rinkeby by clinking Contract Creation here:
 16. Then on the next page it will be displayed here: 
-
 ## Opening & Running the Back-end Application
 These steps will show usage with Visual Studio as the IDE, however you can use any IDE you like and do equivalent steps and use this as a guide. 
 
 1. Open the WikiChangeTracker.sln in Visual Studio (or open projects in another IDE).
 2. You will see the following projects:
-
+  ![Alt text](/DocumentationImages/Setup/SolutionExplorer.jpg?raw=true)
+  
 3. Right click properties and ensure these are the startup projects.
+  ![Alt text](/DocumentationImages/Setup/setstartup.jpg?raw=true)
 
 4. Select Multiple startup projects and select the Action for all 3 to Start. Click OK. 
-
+  ![Alt text](/DocumentationImages/Setup/startupprojects.jpg?raw=true)
 5. Right-click the WikiChangeTracker project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments: `"http://localhost:8081/" "http://localhost:8080/api/GetArticleIdByUri?articleUri=" "https://stream.wikimedia.org/v2/stream/recentchange"`
-
+  ![Alt text](/DocumentationImages/Setup/wikichangetracker.jpg?raw=true)
 6. Right-click the WikiItemsApi project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments and fill them in with your Azure SQL or local credentials: `"URL or Local DB path" "DatabaseName" "SQLUsername" "SQLPassword"`
-
-7. Right-click the WikiBlockApi project and select Properties. Remember the Notepad you saved the account, password, and contract ID on in the previous section? On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments (leave the first value, the second replace with your contract ID, the third is the account (AKA address), and the fourth is the password you setup for the account): "http://127.0.0.1:8545" "0x63825D2448Ae9175B84b04b4DB8Fe4f35ef7B8De" "0xCb0C4471a93c7955177e4E6e4cC71f8dFf5E6DDA" "asdf" 
-
+  ![Alt text](/DocumentationImages/Setup/wikiitemsapi.jpg?raw=true)
+7. Right-click the WikiBlockApi project and select Properties. On the modal, select Debug and look at Script Arguments. Add the following to Script Arguments (leave the first value, the second replace with your contract ID, the third is the account address, and the fourth is the password you setup for the account): "http://127.0.0.1:8545" "0x63825D2448Ae9175B84b04b4DB8Fe4f35ef7B8De" "0xCb0C4471a93c7955177e4E6e4cC71f8dFf5E6DDA" "asdf" 
+  ![Alt text](/DocumentationImages/Setup/wikiblockapi.jpg?raw=true)
 8. Restore the Python packages by...
 
 9. Go back to Visual Studio, and click Run or press F5.
@@ -109,12 +110,15 @@ These steps will show usage with Visual Studio as the IDE, however you can use a
 ## Opening & Running the Front-end Application
 #### Front-end first time setup: 
 1. Install https://nodejs.org/en/
-2. Run `npm install @angular/cli -g`
-3. Run `npm install` inside the Terminal in the WikiChangeAngular folder.
+2. Open a PowerShell with Admin 
+3. Run `npm install @angular/cli -g`
+4. Run `npm install` inside the WikiChangeAngular folder.
 
 #### Front-end general every time setup:
 1. Open Visual Studio Code.
 2. In Visual Studio Code, open a folder, navigate to this downloaded project, open the folder called: WikiChangeAngular
 3. Open the Terminal
+  ![Alt text](/DocumentationImages/Setup/vscodeterminal.jpg?raw=true)
 4. Run `npm run start`
 5. Open your browser on http://localhost:4200/ 
+
