@@ -1,0 +1,23 @@
+version : '3'
+
+services:
+  itemsapi:
+    build:
+      context: ./WikiItemsApi
+    image: wikiitemsapi:dev
+    ports:
+      - 8080:8080
+  blockapi:
+    build:
+      context: ./WikiBlockApi
+    image: wikiblockapi:dev
+    ports:
+      - 8081:8081
+   trackchangessvc:
+    build:
+      context: ./WikiChangeTracker
+    image: wikichangetracker:dev
+    depends_on:
+      - blockapi
+      - itemsapi
+      
