@@ -34,14 +34,14 @@ export class ArticleWeb3Service {
             observer.next(events.map(ev => {
               const article = new Article();
               article.id = ev.returnValues['id'];
-              article.title = atob(ev.returnValues['title']);
-              article.url = atob(ev.returnValues['url']);
-              article.change_type = atob(ev.returnValues['change_type']);
-              article.comment = atob(ev.returnValues['comment']);
+              article.title = this.base64Decode(ev.returnValues['title']);
+              article.url = this.base64Decode(ev.returnValues['url']);
+              article.change_type = this.base64Decode(ev.returnValues['change_type']);
+              article.comment = this.base64Decode(ev.returnValues['comment']);
               article.revision_new = ev.returnValues['revision_new'];
               article.revision_old = ev.returnValues['revision_old'];
               article.timestamp = moment.unix(parseInt(ev.returnValues['timestamp'], 10));
-              article.user = atob(ev.returnValues['user']);
+              article.user = this.base64Decode(ev.returnValues['user']);
               return article;
             }));
             timeoutId = setTimeout(getArticles, CONFIG.web3.pollInteval);
@@ -62,6 +62,15 @@ export class ArticleWeb3Service {
       };
     });
 
+  }
+
+  base64Decode(val): string {
+    try {
+      return atob(val);
+    } catch (e) {
+      console.log(e);
+      return val;
+    }
   }
 
 }
