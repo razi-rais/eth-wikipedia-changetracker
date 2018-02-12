@@ -13,7 +13,7 @@ services:
     image: wikiblockapi:dev
     ports:
       - 8081:8081
-   trackchangessvc:
+  trackchangessvc:
     build:
       context: ./WikiChangeTracker
     image: wikichangetracker:dev
