@@ -1,2 +1,3 @@
-export { CONFIG } from './config';
+export { Config } from './config.model';
+export { ConfigService } from './config.service';
 export * from './rxjs-extensions';

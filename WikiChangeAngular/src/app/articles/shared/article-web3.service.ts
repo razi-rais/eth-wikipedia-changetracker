@@ -4,20 +4,23 @@ import { Observer } from 'rxjs/Observer';
 import * as _Web3 from 'web3';
 import * as moment from 'moment';
 
-import { CONFIG } from '../../core';
+import { ConfigService, Config } from '../../core';
 import { Article } from './article.model';
 
 const Web3 = _Web3 as any; // TODO: workaround for "TS2351: Cannot use 'new' ..." TypeScript error;
 
 @Injectable()
 export class ArticleWeb3Service {
+  config: Config;
 
-  constructor() { }
+  constructor(configService: ConfigService) {
+    this.config = configService.config;
+  }
 
   startPolling(): Observable<Article[]> {
-    const web3 = new Web3(new Web3.providers.HttpProvider(CONFIG.baseUrls.web3));
+    const web3 = new Web3(new Web3.providers.HttpProvider(this.config.baseUrls.web3));
 
-    const contractInstance = new web3.eth.Contract(CONFIG.web3.jsonContract, CONFIG.web3.contractId);
+    const contractInstance = new web3.eth.Contract(this.config.web3.jsonContract, this.config.web3.contractId);
 
     return Observable.create((observer: Observer<Article[]>) => {
       let timeoutId = null;
@@ -44,7 +47,7 @@ export class ArticleWeb3Service {
               article.user = this.base64Decode(ev.returnValues['user']);
               return article;
             }));
-            timeoutId = setTimeout(getArticles, CONFIG.web3.pollInteval);
+            timeoutId = setTimeout(getArticles, this.config.web3.pollInteval);
           })
           .catch((error) => {
             console.error(error);

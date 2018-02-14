@@ -5,7 +5,7 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 import * as moment from 'moment';
 import * as _ from 'underscore';
 
-import { CONFIG } from '../../core';
+import { ConfigService, Config } from '../../core';
 import { Article } from '../shared/article.model';
 import { ArticleWeb3Service } from '../shared/article-web3.service';
 
@@ -15,6 +15,7 @@ import { ArticleWeb3Service } from '../shared/article-web3.service';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit, OnDestroy {
+  config: Config;
   id: string;
   private sub = new Subscription();
   articles: Article[] = [new Article()];
@@ -24,10 +25,13 @@ export class ArticleComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    configService: ConfigService,
     private route: ActivatedRoute,
     private router: Router,
     private articleWeb3Service: ArticleWeb3Service
-  ) { }
+  ) {
+    this.config = configService.config;
+  }
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
@@ -61,22 +65,22 @@ export class ArticleComponent implements OnInit, OnDestroy {
     }
     const isIP = article.user.match(/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/);
     return isIP
-      ? this.getUrl(CONFIG.baseUrls.wikiContributions, article)
-      : this.getUrl(CONFIG.baseUrls.wikiUser, article);
+      ? this.getUrl(this.config.baseUrls.wiki.contributions, article)
+      : this.getUrl(this.config.baseUrls.wiki.user, article);
   }
 
   getRevisionOldUrl(article: Article) {
     if (!article) {
       return '';
     }
-    return this.getUrl(CONFIG.baseUrls.wikiRevisionOld, article);
+    return this.getUrl(this.config.baseUrls.wiki.revisionOld, article);
   }
 
   getRevisionNewUrl(article: Article) {
     if (!article) {
       return '';
     }
-    return this.getUrl(CONFIG.baseUrls.wikiRevisionNew, article);
+    return this.getUrl(this.config.baseUrls.wiki.revisionNew, article);
   }
 
   getUrl(url: string, obj: any) {

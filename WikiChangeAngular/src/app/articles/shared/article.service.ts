@@ -2,17 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
-import { CONFIG } from '../../core';
+import { ConfigService, Config } from '../../core';
 import { Article } from './article.model';
 import { ArticlePost } from './article-post.model';
 
 @Injectable()
 export class ArticleService {
+  config: Config;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    configService: ConfigService,
+    private http: HttpClient
+  ) {
+    this.config = configService.config;
+  }
 
   get(userId: string): Observable<Article[]> {
-    return this.http.get<any>(CONFIG.baseUrls.articles,
+    return this.http.get<any>(this.config.baseUrls.api.articles,
       {
         params: new HttpParams()
           .set('userID', userId)
@@ -31,12 +37,12 @@ export class ArticleService {
   }
 
   post(articlePost: ArticlePost) {
-    return this.http.post<ArticlePost>(CONFIG.baseUrls.articles, articlePost)
+    return this.http.post<ArticlePost>(this.config.baseUrls.api.articles, articlePost)
       .catch(error => this.handleError(error, 'Error saving article watch!'));
   }
 
   delete(userId: string, articleId: string) {
-    return this.http.delete<any>(CONFIG.baseUrls.articles,
+    return this.http.delete<any>(this.config.baseUrls.api.articles,
       {
         params: new HttpParams()
           .set('userID', userId)
