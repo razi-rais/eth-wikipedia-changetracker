@@ -35,6 +35,18 @@ export class NavigationComponent implements OnInit {
           routerLink: '/watch',
         }
       ]
+    },
+    {
+      id: 'config',
+      name: 'Config',
+      icon: 'fa fa-edit',
+      subStyle: '',
+      subMenu: [
+        {
+          name: 'Config',
+          routerLink: '/config',
+        }
+      ]
     }
   ];
 

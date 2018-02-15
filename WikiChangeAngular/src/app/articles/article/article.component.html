@@ -1,59 +1,40 @@
-<div class="">
-  <div class="page-title">
-    <div class="title_left">
-      <h3>{{articles[0].title}} {{articles[0].url}}</h3>
-    </div>
+<app-container pageTitle="{{articles[0].title}} {{articles[0].url}}" title="Changes">
+  <div class="article-container">
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="timestamp">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>
+        <mat-cell *matCellDef="let article"> {{article.timestamp ? article.timestamp.format('L LT') : null}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="user">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Changed By </mat-header-cell>
+        <mat-cell *matCellDef="let article">
+          <a href="{{getUserUrl(article)}}" target="_blank">{{article.user}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="revision_old">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Old Id </mat-header-cell>
+        <mat-cell *matCellDef="let article">
+          <a href="{{getRevisionOldUrl(article)}}" target="_blank">{{article.revision_old}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="revision_new">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> New Id </mat-header-cell>
+        <mat-cell *matCellDef="let article">
+          <a href="{{getRevisionNewUrl(article)}}" target="_blank">{{article.revision_new}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="comment">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Comment </mat-header-cell>
+        <mat-cell *matCellDef="let article"> {{article.comment}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
   </div>
-
-  <div class="clearfix"></div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="x_panel">
-        <div class="x_title">
-          <h2>Changes</h2>
-          <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-          <div class="article-container">
-            <mat-table #table [dataSource]="dataSource" matSort>
-
-              <ng-container matColumnDef="timestamp">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>
-                <mat-cell *matCellDef="let article"> {{article.timestamp ? article.timestamp.format('L LT') : null}} </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="user">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Changed By </mat-header-cell>
-                <mat-cell *matCellDef="let article">
-                  <a href="{{getUserUrl(article)}}" target="_blank">{{article.user}}</a>
-                </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="revision_old">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Old Id </mat-header-cell>
-                <mat-cell *matCellDef="let article">
-                  <a href="{{getRevisionOldUrl(article)}}" target="_blank">{{article.revision_old}}</a>
-                </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="revision_new">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> New Id </mat-header-cell>
-                <mat-cell *matCellDef="let article">
-                  <a href="{{getRevisionNewUrl(article)}}" target="_blank">{{article.revision_new}}</a>
-                </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="comment">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Comment </mat-header-cell>
-                <mat-cell *matCellDef="let article"> {{article.comment}} </mat-cell>
-              </ng-container>
-
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-            </mat-table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</app-container>

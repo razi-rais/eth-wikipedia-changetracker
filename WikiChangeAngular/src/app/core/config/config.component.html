@@ -1,0 +1,15 @@
+<app-container pageTitle="Confg">
+
+  <form class="form-horizontal form-label-left" novalidate>
+    <div *ngFor="let edit of valsToEdit; index as i">
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url{{i}}">
+          {{edit.name}}
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input id="url{{i}}" name="url{{i}}" class="form-control col-md-7 col-xs-12" [ngModel]="getVal(edit.key)" (ngModelChange)="setVal(edit.key, $event)">
+        </div>
+      </div>
+    </div>
+  </form>
+</app-container>

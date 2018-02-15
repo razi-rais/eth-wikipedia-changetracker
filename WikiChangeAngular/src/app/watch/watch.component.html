@@ -1,112 +1,91 @@
-<div class="">
-  <div class="page-title">
-    <div class="title_left">
-      <h3>Watch a Wikipedia Page</h3>
-    </div>
-  </div>
-
-  <div class="clearfix"></div>
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="x_panel">
-        <div class="x_content">
-
-          <div class="form-horizontal form-label-left">
-            <div class="item form-group">
-              <label class="control-label col-md-1 col-sm-1 col-xs-12" for="userId">
-                User ID
-              </label>
-              <div class="col-md-1 col-sm-1 col-xs-12">
-                <input id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="10" required type="text" (blur)="getWatching()">
-              </div>
-            </div>
-          </div>
-
-          <p>
-            Watching Wikipedia articles.
-          </p>
-          <span class="section"></span>
-
-          <div class="watch-container">
-            <mat-table #table [dataSource]="dataSource" matSort>
-
-              <ng-container matColumnDef="delete">
-                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-                <mat-cell *matCellDef="let article">
-                  <button type="button" class="btn btn-danger btn-xs" (click)="delete(article)">Delete</button>
-                </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="id">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-                <mat-cell *matCellDef="let article"> {{article.id}} </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-                <mat-cell *matCellDef="let article"> {{article.title}} </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="url">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Article URL </mat-header-cell>
-                <mat-cell *matCellDef="let article">
-                  <a href="{{article.url}}" target="_blank">{{article.url}}</a>
-                </mat-cell>
-              </ng-container>
-
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-            </mat-table>
-          </div>
-
-          <p class="spacing">
-            Enter a Wikipedia URL in order to add a watch to it.
-          </p>
-          <span class="section"></span>
-
-          <form (ngSubmit)="onSubmit()" #watchForm="ngForm" class="form-horizontal form-label-left" novalidate>
-            <div *ngFor="let article of newArticles; index as i" class="spacing">
-              <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url{{i}}">
-                  URL
-                  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input id="url{{i}}" [(ngModel)]="article.url" name="url{{i}}" class="form-control col-md-7 col-xs-12" placeholder="https://en.wikipedia.org/wiki/Rock_(geology)"
-                    required type="text" (blur)="getTitleAndId(article)">
-                </div>
-              </div>
-              <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id{{i}}">
-                  Id
-                </label>
-                <div class="col-md-1 col-sm-1 col-xs-12">
-                  <input id="id{{i}}" [(ngModel)]="article.id" name="id{{i}}" class="form-control col-md-7 col-xs-12" type="text" disabled>
-                </div>
-                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="title{{i}}">
-                  Title
-                </label>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                  <input id="title{{i}}" [(ngModel)]="article.title" name="title{{i}}" class="form-control col-md-7 col-xs-12" type="text"
-                    disabled>
-                </div>
-              </div>
-            </div>
-
-            <div class="ln_solid"></div>
-            <div class="form-group">
-              <div class="col-md-3 col-md-offset-3">
-                <button type="button" class="btn btn-danger" (click)="removeArticle();" [disabled]="newArticles.length <= 1">-</button>
-                <button type="button" class="btn btn-success" (click)="addArticle();">+</button>
-              </div>
-              <div class="col-md-3 right-align">
-                <button type="button" class="btn btn-default" (click)="reset(); watchForm.reset();">Cancel</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-          </form>
-        </div>
+<app-container pageTitle="Watch Wikipedia Pages" >
+  <div class="form-horizontal form-label-left">
+    <div class="item form-group">
+      <label class="control-label col-md-1 col-sm-1 col-xs-12" for="userId">
+        User ID
+      </label>
+      <div class="col-md-1 col-sm-1 col-xs-12">
+        <input id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="10" required type="text" (blur)="getWatching()">
       </div>
     </div>
   </div>
-</div>
+
+  <div class="watch-container">
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let article">
+          <button type="button" class="btn btn-danger btn-xs" (click)="delete(article)">Delete</button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let article"> {{article.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+        <mat-cell *matCellDef="let article"> {{article.title}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="url">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Article URL </mat-header-cell>
+        <mat-cell *matCellDef="let article">
+          <a href="{{article.url}}" target="_blank">{{article.url}}</a>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <p class="spacing">
+    Enter a Wikipedia URL in order to add a watch to it.
+  </p>
+  <span class="section"></span>
+
+  <form (ngSubmit)="onSubmit()" #watchForm="ngForm" class="form-horizontal form-label-left" novalidate>
+    <div *ngFor="let article of newArticles; index as i" class="spacing">
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url{{i}}">
+          URL
+          <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input id="url{{i}}" [(ngModel)]="article.url" name="url{{i}}" class="form-control col-md-7 col-xs-12" placeholder="https://en.wikipedia.org/wiki/Rock_(geology)"
+            required type="text" (blur)="getTitleAndId(article)">
+        </div>
+      </div>
+      <div class="item form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id{{i}}">
+          Id
+        </label>
+        <div class="col-md-1 col-sm-1 col-xs-12">
+          <input id="id{{i}}" [(ngModel)]="article.id" name="id{{i}}" class="form-control col-md-7 col-xs-12" type="text" disabled>
+        </div>
+        <label class="control-label col-md-1 col-sm-1 col-xs-12" for="title{{i}}">
+          Title
+        </label>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <input id="title{{i}}" [(ngModel)]="article.title" name="title{{i}}" class="form-control col-md-7 col-xs-12" type="text"
+            disabled>
+        </div>
+      </div>
+    </div>
+
+    <div class="ln_solid"></div>
+    <div class="form-group">
+      <div class="col-md-3 col-md-offset-3">
+        <button type="button" class="btn btn-danger" (click)="removeArticle();" [disabled]="newArticles.length <= 1">-</button>
+        <button type="button" class="btn btn-success" (click)="addArticle();">+</button>
+      </div>
+      <div class="col-md-3 right-align">
+        <button type="button" class="btn btn-default" (click)="reset(); watchForm.reset();">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</app-container>

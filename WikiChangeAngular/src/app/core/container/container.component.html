@@ -1,7 +1,7 @@
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <h3>My Dashboard</h3>
+      <h3>{{pageTitle}}</h3>
     </div>
   </div>
 
@@ -9,14 +9,15 @@
   <div class="row">
     <div class="col-md-12">
       <div class="x_panel">
-        <div class="x_title">
-          <h2>Wiki Articles</h2>
+        <div class="x_title" *ngIf="title">
+          <h2>{{title}}</h2>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-          <app-article-list></app-article-list>
+          <ng-content></ng-content>
         </div>
       </div>
     </div>
+
   </div>
 </div>

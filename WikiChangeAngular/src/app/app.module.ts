@@ -16,7 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ArticleComponent } from './articles/article/article.component';
 import { ArticleListComponent } from './articles/article-list/article-list.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WatchComponent } from './watch/watch.component';
 
@@ -43,7 +42,6 @@ import { WikiService } from './articles/shared/wiki.service';
     AppComponent,
     ArticleComponent,
     ArticleListComponent,
-    DashboardComponent,
     NavigationComponent,
     WatchComponent
   ],
