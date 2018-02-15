@@ -18,12 +18,17 @@ export class ArticleWeb3Service {
   }
 
   startPolling(): Observable<Article[]> {
-    const web3 = new Web3(new Web3.providers.HttpProvider(this.config.baseUrls.web3));
-
-    const contractInstance = new web3.eth.Contract(this.config.web3.jsonContract, this.config.web3.contractId);
 
     return Observable.create((observer: Observer<Article[]>) => {
       let timeoutId = null;
+      let contractInstance = null;
+      try {
+        const web3 = new Web3(new Web3.providers.HttpProvider(this.config.baseUrls.web3));
+        contractInstance = new web3.eth.Contract(this.config.web3.jsonContract, this.config.web3.contractId);
+      } catch (error) {
+        console.error(error);
+        return observer.error('Error getting articles');
+      }
 
       const getArticles = () => {
         timeoutId = null;

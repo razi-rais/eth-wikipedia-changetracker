@@ -13,7 +13,7 @@ import { ArticleWeb3Service } from '../shared/article-web3.service';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit, OnDestroy {
-  private sub: Subscription;
+  private sub = new Subscription();
   articles: Article[] = [];
   displayedColumns = ['view', 'id', 'name', 'url', 'mostRecentChange'];
   dataSource = new MatTableDataSource<Article>(this.articles);
@@ -34,14 +34,14 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   getArticles() {
     this.articles = [];
 
-    this.sub = this.articleWeb3Service.startPolling()
+    this.sub.add(this.articleWeb3Service.startPolling()
       .subscribe(articles => {
         this.articles = _.chain(articles)
           .groupBy('id')
           .map(group => _.max(group, article => article.timestamp))
           .value();
         this.dataSource.data = this.articles;
-      }, error => { });
+      }, error => { }));
   }
 
   isTimestampBetween(article: Article, from: number, to?: number): boolean {
