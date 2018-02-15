@@ -31,7 +31,7 @@
             </a>
             <ul class="nav child_menu" [ngStyle]=item.subStyle>
               <li *ngFor="let sub of item.subMenu">
-                <a [routerLink]="sub.routerLink">{{item.name}}</a>
+                <a [routerLink]="sub.routerLink">{{sub.name}}</a>
               </li>
             </ul>
           </li>

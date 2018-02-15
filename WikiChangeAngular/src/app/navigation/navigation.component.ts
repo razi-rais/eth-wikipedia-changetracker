@@ -43,7 +43,7 @@ export class NavigationComponent implements OnInit {
       subStyle: '',
       subMenu: [
         {
-          name: 'Config',
+          name: 'Edit Config',
           routerLink: '/config',
         }
       ]

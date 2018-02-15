@@ -1,13 +1,12 @@
-<app-container pageTitle="Confg">
-
+<app-container pageTitle="Edit Config">
   <form class="form-horizontal form-label-left" novalidate>
-    <div *ngFor="let edit of valsToEdit; index as i">
+    <div *ngFor="let cfg of configsToEdit; index as i">
       <div class="item form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url{{i}}">
-          {{edit.name}}
+          {{cfg.name}}
         </label>
         <div class="col-md-6 col-sm-6 col-xs-12">
-          <input id="url{{i}}" name="url{{i}}" class="form-control col-md-7 col-xs-12" [ngModel]="getVal(edit.key)" (ngModelChange)="setVal(edit.key, $event)">
+          <input id="url{{i}}" name="url{{i}}" [type]="cfg.type" class="form-control col-md-7 col-xs-12" [class.error]="!cfg.isValid" [ngModel]="getVal(cfg)" (ngModelChange)="setVal(cfg, $event)">
         </div>
       </div>
     </div>
