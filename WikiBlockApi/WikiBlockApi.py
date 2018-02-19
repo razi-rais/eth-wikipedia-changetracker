@@ -14,8 +14,8 @@ web3_url= sys.argv[1]
 account = sys.argv[2]
 contract_address = sys.argv[3]
 password = ""
-if not sys.argv[4]:
-   password = sys.argv[4]
+if len(sys.argv[4]) > 0:
+    password = sys.argv[4]
 
 
 abi = json.loads('[{"constant":false,"inputs":[{"name":"id","type":"uint256"},{"name":"request_id","type":"string"},{"name":"title","type":"string"},{"name":"url","type":"string"},{"name":"revision_old","type":"uint256"},{"name":"revision_new","type":"uint256"},{"name":"timestamp","type":"uint256"},{"name":"change_type","type":"string"},{"name":"user","type":"string"},{"name":"comment","type":"string"}],"name":"UpdateArticleHistory","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"","type":"address"},{"indexed":false,"name":"id","type":"uint256"},{"indexed":false,"name":"title","type":"string"},{"indexed":false,"name":"url","type":"string"},{"indexed":false,"name":"revision_old","type":"uint256"},{"indexed":false,"name":"revision_new","type":"uint256"},{"indexed":false,"name":"timestamp","type":"uint256"},{"indexed":false,"name":"change_type","type":"string"},{"indexed":false,"name":"user","type":"string"},{"indexed":false,"name":"comment","type":"string"}],"name":"articleUpdateEvent","type":"event"}]')
