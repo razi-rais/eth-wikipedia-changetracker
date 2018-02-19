@@ -14,6 +14,7 @@ web3_url= sys.argv[1]
 account = sys.argv[2]
 contract_address = sys.argv[3]
 password = ""
+#Password is blank for test-rpc othwerwise should always be provided
 if len(sys.argv[4]) > 0:
     password = sys.argv[4]
 
