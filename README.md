@@ -19,6 +19,6 @@ The SQL database will keep all of the user information, article information (URL
 * [Setup](https://github.com/razi-rais/eth-wikipedia-changetracker/blob/master/Documentation/Setup.md) - Setup instructions are provided for both Windows and Mac/Linux. 
 
 # Architecture Diagram
-TODO
+![Alt text](/DocumentationImages/AppWalkthrough/ArchitectureDiagram.png?raw=true)
 
 
