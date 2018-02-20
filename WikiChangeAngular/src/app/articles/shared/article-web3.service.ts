@@ -50,6 +50,8 @@ export class ArticleWeb3Service {
               article.revision_old = ev.returnValues['revision_old'];
               article.timestamp = moment.unix(parseInt(ev.returnValues['timestamp'], 10));
               article.user = this.base64Decode(ev.returnValues['user']);
+
+              article.transactionHash = ev.transactionHash;
               return article;
             }));
             timeoutId = setTimeout(getArticles, this.config.web3.pollInteval);

@@ -13,6 +13,10 @@ export class Config {
             revisionNew: string,
             contributions: string
         },
+        rinkeby: {
+            contractId: string,
+            transaction: string
+        },
         web3: string
     };
     web3: {

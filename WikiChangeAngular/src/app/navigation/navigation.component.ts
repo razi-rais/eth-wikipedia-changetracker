@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, HostListener } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
+import { ConfigService, Config } from '../core';
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -9,6 +11,7 @@ import { EventEmitter } from '@angular/core';
 export class NavigationComponent implements OnInit {
   @Output() bodyClassChange = new EventEmitter<string>();
   @Input() bodyClass: string;
+  config: Config;
   activeMenu = null;
 
   menu = [
@@ -50,7 +53,9 @@ export class NavigationComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private configService: ConfigService) {
+    this.config = configService.config;
+  }
 
   ngOnInit() {
     this.activeMenu = this.menu[0];
@@ -95,5 +100,12 @@ export class NavigationComponent implements OnInit {
       el = el.parentElement;
     }
     return false;
+  }
+
+  getContractUrl() {
+    if (!this.configService.config) {
+      return;
+    }
+    return this.configService.replace(this.configService.config.baseUrls.rinkeby.contractId, this.configService.config.web3);
   }
 }

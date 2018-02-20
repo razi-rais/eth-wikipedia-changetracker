@@ -2,6 +2,14 @@
   <div class="article-container">
     <mat-table #table [dataSource]="dataSource" matSort>
 
+      <ng-container matColumnDef="transaction">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let article">
+          <a class="btn btn-primary btn-xs" href="{{getTransactionUrl(article)}}" target="_blank">
+            <i class="fa fa-copy"></i> Transaction </a>
+        </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="timestamp">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>
         <mat-cell *matCellDef="let article"> {{article.timestamp ? article.timestamp.format('L LT') : null}} </mat-cell>

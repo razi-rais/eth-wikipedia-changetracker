@@ -29,6 +29,10 @@
     padding: 0;
 }
 
+.mat-column-transaction {
+    max-width: 100px;
+}
+
 .mat-column-timestamp {
     max-width: 90px;
 }

@@ -24,4 +24,8 @@ export class ConfigService implements Resolve<Config> {
     console.error(error);
     return Observable.throw(msg);
   }
+
+  public replace(text: string, obj: any) {
+    return text.replace(/\{(\w+)\}/g, (match, name) => obj.hasOwnProperty(name) ? obj[name] : '');
+  }
 }

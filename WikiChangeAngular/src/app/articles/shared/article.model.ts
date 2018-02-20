@@ -12,4 +12,5 @@ export class Article {
     revision_old: string;
     timestamp: Moment;
     user: string;
+    transactionHash: string;
 }

@@ -19,13 +19,13 @@ export class ArticleComponent implements OnInit, OnDestroy {
   id: string;
   private sub = new Subscription();
   articles: Article[] = [new Article()];
-  displayedColumns = ['timestamp', 'user', 'revision_old', 'revision_new', 'comment'];
+  displayedColumns = ['transaction', 'timestamp', 'user', 'revision_old', 'revision_new', 'comment'];
   dataSource = new MatTableDataSource<Article>(this.articles);
 
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    configService: ConfigService,
+    private configService: ConfigService,
     private route: ActivatedRoute,
     private router: Router,
     private articleWeb3Service: ArticleWeb3Service
@@ -59,32 +59,35 @@ export class ArticleComponent implements OnInit, OnDestroy {
       }, error => { }));
   }
 
+  getTransactionUrl(article: Article) {
+    if (!article || !article.user) {
+      return '';
+    }
+    return this.configService.replace(this.config.baseUrls.rinkeby.transaction, article);
+  }
+
   getUserUrl(article: Article) {
     if (!article || !article.user) {
       return '';
     }
     const isIP = article.user.match(/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/);
     return isIP
-      ? this.getUrl(this.config.baseUrls.wiki.contributions, article)
-      : this.getUrl(this.config.baseUrls.wiki.user, article);
+      ? this.configService.replace(this.config.baseUrls.wiki.contributions, article)
+      : this.configService.replace(this.config.baseUrls.wiki.user, article);
   }
 
   getRevisionOldUrl(article: Article) {
     if (!article) {
       return '';
     }
-    return this.getUrl(this.config.baseUrls.wiki.revisionOld, article);
+    return this.configService.replace(this.config.baseUrls.wiki.revisionOld, article);
   }
 
   getRevisionNewUrl(article: Article) {
     if (!article) {
       return '';
     }
-    return this.getUrl(this.config.baseUrls.wiki.revisionNew, article);
-  }
-
-  getUrl(url: string, obj: any) {
-    return url.replace(/\{(\w+)\}/g, (match, group) => obj.hasOwnProperty(group) ? obj[group] : '');
+    return this.configService.replace(this.config.baseUrls.wiki.revisionNew, article);
   }
 
 }

@@ -11,6 +11,10 @@
             "revisionNew": "https://en.wikipedia.org/w/index.php?title={title}&oldid={revision_new}",
             "contributions": "https://en.wikipedia.org/wiki/Special:Contributions/{user}"
         },
+        "rinkeby": {
+            "contractId": "https://rinkeby.etherscan.io/address/{contractId}",
+            "transaction": "https://rinkeby.etherscan.io/tx/{transactionHash}"
+        },
         "web3": "http://localhost:8545"
     },
     "web3": {
