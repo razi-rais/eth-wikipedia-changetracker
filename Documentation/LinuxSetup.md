@@ -1,6 +1,6 @@
 ## Mac OS X / Linux 
 
-Running this project on both Mac OS X and Linux requires almost identical steps. We will predominantly be using Docker for almost all projects, so packaging requirements are minimial and Docker images should work as-is on Linux/Mac OS X.    
+Running this project on both Mac OS X and Linux requires almost identical steps. We will predominantly be using Docker to build and run almost all projects. Thi means that Docker images should work as-is on both Linux and Mac OS X.
 
 First make sure you have following prerequisites installed:
 
@@ -9,4 +9,12 @@ First make sure you have following prerequisites installed:
 * Node 9.5.0 
 * NPM 5.6.0  
 * Git 2.15.1 (or later version)
+
+Start by cloning the project: ```git clone https://github.com/razi-rais/eth-wikipedia-changetracker.git ``` . Make sure you are inside the root directory i-e ```/eth-wikipedia-changetracker```
+
+ Now, we will build the Docker images:
+ 
+* WikiChangeTracker: ``` docker build -t wikichangetracker:1.0  ./WikiChangeTracker ```
+* WikiItemsApi:  ``` docker build -t wikiitemsapi:1.0  ./WikiItemsApi ```
+* WikiBlockApi: ``` docker build -t wikiblockapi:1.0  ./WikiBlockApi ```
 
