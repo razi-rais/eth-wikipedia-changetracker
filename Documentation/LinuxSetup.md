@@ -12,9 +12,12 @@ First make sure you have following prerequisites installed:
 
 Start by cloning the project: ```git clone https://github.com/razi-rais/eth-wikipedia-changetracker.git ``` . Make sure you are inside the root directory i-e ```/eth-wikipedia-changetracker```
 
- Now, we will build the Docker images:
+## Building Docker Images
+Now, we will build the Docker images:
  
 * WikiChangeTracker: ``` docker build -t wikichangetracker:1.0  ./WikiChangeTracker ```
 * WikiItemsApi:  ``` docker build -t wikiitemsapi:1.0  ./WikiItemsApi ```
 * WikiBlockApi: ``` docker build -t wikiblockapi:1.0  ./WikiBlockApi ```
 
+## Database
+We will need to store links to urls inside the database. Currently Azure SQL is used but technically it doesn't matter if you SQL is running on-premises or in the cloud.
