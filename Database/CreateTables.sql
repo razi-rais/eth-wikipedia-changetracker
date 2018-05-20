@@ -1,3 +1,6 @@
+-- You may want to use CreateDatabase.sql script to create an empty database. If you already have a database then this script 
+-- will create the tables.
+
 USE [REPLACE_WITH_THE_NAME_OF_EMPTY_DATABASE]
 
 GO
