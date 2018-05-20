@@ -20,4 +20,4 @@ Now, we will build the Docker images:
 * WikiBlockApi: ``` docker build -t wikiblockapi:1.0  ./WikiBlockApi ```
 
 ## Database
-We will need to store links to urls inside the database. Currently Azure SQL is used but technically it doesn't matter if you SQL is running on-premises or in the cloud.
+We will need to persist some data inside the database.This includes URL of the page, its tile etc. Currently Azure SQL is used but technically it doesn't matter if your SQL is running on-premises or in the cloud.
