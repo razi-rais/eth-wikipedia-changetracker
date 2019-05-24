@@ -22,3 +22,4 @@ The SQL database will keep all of the user information, article information (URL
 ![Alt text](/DocumentationImages/AppWalkthrough/ArchitectureDiagram.png?raw=true)
 
 
+
